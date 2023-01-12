@@ -1,0 +1,22 @@
+.container
+{
+    height: 500px;
+    width: auto;
+}
+img
+{
+    height: 100px;
+    
+}
+.container1
+{
+    margin-left:50px ;
+}
+.feature
+{
+    display: flex;
+}
+footer
+{
+    margin-top: 15%;
+}
