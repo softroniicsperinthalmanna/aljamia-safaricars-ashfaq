@@ -1,0 +1,24 @@
+.btn-outline-shaheen
+{
+    background-color: #fbfbfb;
+    border-color: #52796f;
+    color: #52796f;
+
+}
+.btn-outline-shaheen:hover
+{
+    background-color: #52796f;
+    color: #fbfbfb;
+}
+.btn-outline-shaheen:focus
+{
+    background-color: #fbfbfb;
+    color: #52796f;
+    border-color: #52796f;
+
+}
+
+.text-marwan
+{
+    color: #6a040f;
+}
