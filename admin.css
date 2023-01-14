@@ -1,0 +1,37 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+h2
+{
+    margin-top: 50px;
+}
+img
+{
+    height:auto;
+    width: 50%;
+    display: inline;
+    margin-right: 50px;
+}
+.bg-image-vertical {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+    }
+    
+    @media (min-width: 1025px) {
+    .h-custom-2 {
+    height: 100%;
+    }
+    }
+.btn-shaheen
+{
+  background-color: #FE2310;
+}
+.text-shaheen
+{
+  color: #FE2310;
+}

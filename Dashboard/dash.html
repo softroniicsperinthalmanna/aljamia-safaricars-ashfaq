@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="dash.css"> 
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+   <script src="js/bootstrap.js"></script>
+   <script src="dash.js"></script>
+   <!-- bar-graph -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<!-- Inbox  -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+</head>
+<body>
+         <!-- side nav -->
+         <nav class="bg-white text-start  border border-0 nbar-sm nbar-lg">
+            <ul class="px-5 ">
+              <a href="" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <span class="fs- d-none d-sm-inline">
+                  <img src="C:\Users\thanz\.vscode\soft\safari admin\logo.png" alt="logo"></span>
+          </a>
+          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="menu">
+            <li class="nav-item ">
+                <a href="C:\Users\thanz\.vscode\soft\safari admin\reg.html" class="nav-link align-middle px-0">
+                    <i class=" bi-house text-red"><span class="ms-1 d-none d-sm-inline text-red">Dashboard</span></i> 
+                </a>
+            </li>
+            <li>
+                <a href="C:\Users\thanz\.vscode\soft\safari admin\orders\od.html" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                    <i class="bi bi-cart4 text-red"> <span class="ms-1 d-none d-sm-inline text-red">Order</span> </i></a>
+               
+            </li>
+            <li>
+                <a href="C:\Users\thanz\.vscode\soft\safari admin\Dashboard\test.html" class="nav-link px-0 align-middle">
+                    <i class="bi bi-car-front text-red"> <span class="ms-1 d-none d-sm-inline text-red">Vehicle</span>
+                    </i></a>
+            </li>
+            <li>
+                <a href="C:\Users\thanz\.vscode\soft\safari admin\reg.html" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                    <i class="bi bi-box text-red"> <span class="ms-1 d-none d-sm-inline text-red">Product</span></i>
+                  </a>
+                
+            </li>
+            <li>
+                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                    <i class=" bi-grid text-red"> <span class="ms-1 d-none d-sm-inline text-red">Feature Ad</span></i> </a>
+                  
+            </li>
+            <li>
+                <a href="#" class="nav-link px-0 align-middle">
+                    <i class="bi bi-pencil-square text-red"> <span class="ms-1 d-none d-sm-inline text-red">Edit Garage</span></i> </a>
+            </li>
+        </ul>
+            </ul>
+        </nav>
+        <!-- <div class="row"> -->
+            <!-- <div class="col-6 d-flex justify-content-lg-center my-2">
+                <div class="input-group col-6 ms-5 ">
+                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <button type="button" class="btn btn-outline-blue">search</button>
+            </div> -->
+             <!-- search-bar -->
+             <form class="d-flex ">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-info" type="submit">Search</button>
+            </form>
+        
+               <!-- <div class="col">   -->
+                <div class="col my-2   fs-3 mx-sm-0    text-lg-end mx-lg-5" > 
+                    <a href="" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                    <i class="bi bi-bell-fill text-blue"></i></a>
+                </div>
+                <div class="col my-2 text-sm-start text-lg-end fs-3 mx-sm-4 mx-lg-5"> 
+                 <a href="" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <i class="bi bi-people-fill text-blue"></i></a>
+                        </div>
+                        <div class="col my-2 text-sm-end text-lg-end fs-3 mx-sm-4 mx-lg-5 text-end"> 
+
+                        <a href="" class="text-blue ">
+                            <i class="bi bi-person-circle  text-secondary fs-3"></i>
+                        </a>
+                        </div>
+             </div>
+           
+              <!-- buttons -->
+<div class="row d-flex justify-content-center">
+    <div class="col-4">
+            <div class="btn  text-start  ">
+                <a name="" id="btn" class="btn btn-outline-blue c-sm  " href="#" role="button">           <i class="bi bi-truck   fs-3">
+                 <span class="fw-bolder">Shipped Orders</span>   
+                </i>
+                 </a>
+            </div>
+        
+      
+    </div>
+    <div class="col-4">
+        <div class="btn  text-start  ">
+            <a name="" id="btn" class="btn btn-outline-green c-sm  " href="#" role="button">           <i class="bi bi-truck   fs-3">
+             <span class="fw-bolder">Shipped Orders</span>   
+            </i>
+             </a>
+        </div>
+    
+  
+</div>
+<div class="col-4">
+    <div class="btn  text-start">
+        <a name="" id="btn" class="btn btn-outline-red c-sm  " href="#" role="button">           <i class="bi bi-truck   fs-3">
+         <span class="fw-bolder">Shipped Orders</span>   
+        </i>
+         </a>
+    </div>
+
+
+</div>
+</div>
+                                                    <!-- 2nd row  -->
+
+<!-- <div class="row d-flex justify-content-center">
+    <div class="col "> -->
+        
+   
+        
+    
+                                                    <!-- Inbox  -->
+
+                                                    <div class="container">
+                                                        <div class="row-2">
+                                                            <div class="col-md-12">
+                                                                <div class="card">
+                                                                    <div class="card-body  text-white mailbox-widget pb-0">
+                                                                        <h2 class="text-white pb-3 bg-glass">Inbox</h2>
+                                                                        
+                                                                    </div>
+                                                                                <!-- Mail list-->
+                                                                                <div class="table-responsive">
+                                                                                    <table class="table email-table no-wrap table-hover v-middle mb-0 font-14">
+                                                                                        <tbody>
+                                                                                            <!-- row -->
+                                                                                            <tr>
+                                                                                                <!-- label -->
+                                                                                                <td class="pl-3">
+                                                                                                    <div class="custom-control custom-checkbox">
+                                                                                                        <input type="checkbox" class="custom-control-input" id="cst1" />
+                                                                                                        <label class="custom-control-label" for="cst1">&nbsp;</label>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <!-- star -->
+                                                                                                <td><i class="fa fa-star text-warning"></i></td>
+                                                                                                <td>
+                                                                                                    <span class="mb-0 text-muted">Hritik Roshan</span>
+                                                                                                </td>
+                                                                                                <!-- Message -->
+                                                                                                <td>
+                                                                                                    <a class="link" href="javascript: void(0)">
+                                                                                                        <span class="text-dark">Lorem ipsum perspiciatis-</span>
+                                                                                                    </a>
+                                                                                                </td>
+                                                                                                <!-- Attachment -->
+                                                                                                <td><i class="fa fa-paperclip text-muted"></i></td>
+                                                                                                <!-- Time -->
+                                                                                                <td class="text-muted">May 13</td>
+                                                                                            </tr>
+                                                                                            <!-- row -->
+                                                                                            <tr>
+                                                                                                <!-- label -->
+                                                                                                <td class="pl-3">
+                                                                                                    <div class="custom-control custom-checkbox">
+                                                                                                        <input type="checkbox" class="custom-control-input" id="cst2" />
+                                                                                                        <label class="custom-control-label" for="cst2">&nbsp;</label>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <!-- star -->
+                                                                                                <td><i class="fa fa-star"></i></td>
+                                                                                                <!-- User -->
+                                                                                                <td>
+                                                                                                    <span class="mb-0 text-muted">Genelia Roshan</span>
+                                                                                                </td>
+                                                                                                <!-- Message -->
+                                                                                                <td>
+                                                                                                    <a class="link" href="javascript: void(0)">
+                                                                                                        <span class="text-dark">Inquiry about license for Admin </span>
+                                                                                                    </a>
+                                                                                                </td>
+                                                                                                <!-- Attachment -->
+                                                                                                <td><i class="fa fa-paperclip text-muted"></i></td>
+                                                                                                <!-- Time -->
+                                                                                                <td class="text-muted">May 13</td>
+                                                                                            </tr>
+                                                                                            <!-- row -->
+                                                                                            <tr>
+                                                                                                <!-- label -->
+                                                                                                <td class="pl-3">
+                                                                                                    <div class="custom-control custom-checkbox">
+                                                                                                        <input type="checkbox" class="custom-control-input" id="cst3" />
+                                                                                                        <label class="custom-control-label" for="cst3">&nbsp;</label>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <!-- star -->
+                                                                                                <td><i class="fa fa-star text-warning"></i></td>
+                                                                                                <!-- User -->
+                                                                                                <td class="user-name max-texts">
+                                                                                                    <span class="mb-0 text-muted font-light">Ritesh Deshmukh</span>
+                                                                                                </td>
+                                                                                                <!-- Message -->
+                                                                                                <td>
+                                                                                                    <a class="link" href="javascript: void(0)">
+                                                                                                        <span class="font-light text-dark">Bitbucket (commit Pushed) by Ritesh</span>
+                                                                                                    </a>
+                                                                                                </td>
+                                                                                                <!-- Attachment -->
+                                                                                                <td><i class="fa fa-paperclip text-muted"></i></td>
+                                                                                                <!-- Time -->
+                                                                                                <td class="text-muted font-light">May 13</td>
+                                                                                            </tr>
+                                                                                            <!-- row -->
+                                                                                            <tr class="">
+                                                                                                <!-- label -->
+                                                                                                <td class="pl-3">
+                                                                                                    <div class="custom-control custom-checkbox">
+                                                                                                        <input type="checkbox" class="custom-control-input" id="cst4" />
+                                                                                                        <label class="custom-control-label" for="cst4">&nbsp;</label>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <!-- star -->
+                                                                                                <td><i class="fa fa-star"></i></td>
+                                                                                                <!-- User -->
+                                                                                                <td>
+                                                                                                    <span class="mb-0 text-muted font-light">Akshay Kumar</span>
+                                                                                                </td>
+                                                                                                <!-- Message -->
+                                                                                                <td>
+                                                                                                    <a class="link" href="javascript: void(0)">
+                                                                                                        <span class="font-light text-dark">Perspiciatis unde omnis- iste Lorem ipsum</span>
+                                                                                                    </a>
+                                                                                                </td>
+                                                                                                <!-- Attachment -->
+                                                                                                <td><i class="fa fa-paperclip text-muted"></i></td>
+                                                                                                <!-- Time -->
+                                                                                                <td class="text-muted font-light">May 9</td>
+                                                                                            </tr>
+                                                                                            <!-- row -->
+                                                                                            <tr class="">
+                                                                                                <!-- label -->
+                                                                                                <td class="pl-3">
+                                                                                                    <div class="custom-control custom-checkbox">
+                                                                                                        <input type="checkbox" class="custom-control-input" id="cst5" />
+                                                                                                        <label class="custom-control-label" for="cst5">&nbsp;</label>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <!-- star -->
+                                                                                                <td><i class="fa fa-star"></i></td>
+                                                                                                <!-- User -->
+                                                                                                <td>
+                                                                                                    <span class="mb-0 text-muted font-light">John Abraham</span>
+                                                                                                </td>
+                                                                                                <!-- Message -->
+                                                                                                <td>
+                                                                                                    <a class="link" href="javascript: void(0)">
+                                                                                                        <span class="font-light text-dark">Lorem ipsum perspiciatis- unde omnis</span>
+                                                                                                    </a>
+                                                                                                </td>
+                                                                                                <!-- Attachment -->
+                                                                                                <td><i class="fa fa-paperclip text-muted"></i></td>
+                                                                                                <!-- Time -->
+                                                                                                <td class="text-muted font-light">Mar 10</td>
+                                                                                            </tr>
+                                                                                            <!-- row -->
+                                                                                            <tr class="">
+                                                                                                <!-- label -->
+                                                                                                <td class="pl-3">
+                                                                                                    <div class="custom-control custom-checkbox">
+                                                                                                        <input type="checkbox" class="custom-control-input" id="cst6" />
+                                                                                                        <label class="custom-control-label" for="cst6">&nbsp;</label>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <!-- star -->
+                                                                                                <td><i class="fa fa-star text-warning"></i></td>
+                                                                                                <!-- User -->
+                                                                                                <td>
+                                                                                                    <span class="mb-0 text-muted font-light">Akshay Kumar</span>
+                                                                                                </td>
+                                                                                                <!-- Message -->
+                                                                                                <td>
+                                                                                                    <a class="link" href="javascript: void(0)">
+                                                                                                        <span class="font-light text-dark">Lorem ipsum perspiciatis - unde</span>
+                                                                                                    </a>
+                                                                                                </td>
+                                                                                                <!-- Attachment -->
+                                                                                                <td><i class="fa fa-paperclip text-muted"></i></td>
+                                                                                                <!-- Time -->
+                                                                                                <td class="text-muted font-light">Mar 09</td>
+                                                                                            </tr>
+                                                                                            <!-- row -->
+                                                                                            <tr class="">
+                                                                                                <!-- label -->
+                                                                                                <td class="pl-3">
+                                                                                                    <div class="custom-control custom-checkbox">
+                                                                                                        <input type="checkbox" class="custom-control-input" id="cst7" />
+                                                                                                        <label class="custom-control-label" for="cst7">&nbsp;</label>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <!-- star -->
+                                                                                                <td><i class="fa fa-star text-warning"></i></td>
+                                                                                                <!-- User -->
+                                                                                                <td>
+                                                                                                    <span class="mb-0 text-muted font-light">Hanna Gover</span>
+                                                                                                </td>
+                                                                                                <!-- Message -->
+                                                                                                <td>
+                                                                                                    <a class="link" href="javascript: void(0)">
+                                                                                                        <span class="font-light text-dark"> Unde omnis Lorem ipsum perspiciatis</span>
+                                                                                                    </a>
+                                                                                                </td>
+                                                                                                <!-- Attachment -->
+                                                                                                <td><i class="fa fa-paperclip text-muted"></i></td>
+                                                                                                <!-- Time -->
+                                                                                                <td class="text-muted font-light">Mar 09</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tab-pane fade" id="sent" aria-labelledby="sent-tab" role="tabpanel">
+                                                                            <div class="row p-3 text-dark">
+                                                                                <div class="col-md-6">
+                                                                                    <h3 class="font-light">Lets check profile</h3>
+                                                                                    <h4 class="font-light">you can use it with the small code</h4>
+                                                                                </div>
+                                                                                <div class="col-md-6 text-right">
+                                                                                    <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tab-pane fade" id="spam" aria-labelledby="spam-tab" role="tabpanel">
+                                                                            <div class="row p-3 text-dark">
+                                                                                <div class="col-md-6">
+                                                                                    <h3 class="font-light">Come on you have a lot message</h3>
+                                                                                    <h4 class="font-light">you can use it with the small code</h4>
+                                                                                </div>
+                                                                                <div class="col-md-6 text-right">
+                                                                                    <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tab-pane fade" id="delete" aria-labelledby="delete-tab" role="tabpanel">
+                                                                            <div class="row p-3 text-dark">
+                                                                                <div class="col-md-6">
+                                                                                    <h3 class="font-light">Just do Settings</h3>
+                                                                                    <h4 class="font-light">you can use it with the small code</h4>
+                                                                                </div>
+                                                                                <div class="col-md-6 text-right">
+                                                                                    <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+        </div>
+<!-- bar-graph -->
+<div class="col ">
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+ <script>
+    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+    var yValues = [55, 49, 44, 24, 15];
+    var barColors = ["red", "green","blue","orange","brown"];
+    
+    new Chart("myChart", {
+      type: "bar",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        legend: {display: false},
+        title: {
+          display: true,
+          text: "World Wine Production 2018"
+        }
+      }
+    });
+    </script> 
+</div>
+</div>
+</body>
+</html>
