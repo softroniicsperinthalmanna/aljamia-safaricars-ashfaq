@@ -1,0 +1,85 @@
+.btn-outline-marwan
+{
+margin-left: 100px;
+text-align: center;
+}
+.btn-outline-shaheen
+{
+    border-color:rgb(3, 12, 2) ;
+    color: rgb(2, 17, 2);
+}
+.btn-outline-shaheen:hover
+{
+    background-color: rgb(13, 255, 0);
+    color: aliceblue;
+}
+.btn-outline-marwan
+{
+    border-color: black;
+}
+.btn-outline-marwan:hover
+{
+background-color: red;    
+}
+.text-red
+{
+  color: #0c81b3;
+
+}
+.text-red:hover
+{
+  color: rgb(0, 0, 0);
+}
+.text-red:focus
+{
+  color: aliceblue;
+}
+/* side nav */
+nav
+{
+    display: grid;
+    place-items:center;
+    font-family: monospace;
+    border-radius: 5px;
+    max-width: 225px;
+    border-left: 2px thin rgb(255, 0, 0);
+       overflow:auto;
+       position: fixed;
+       display: block;
+    float: left;
+
+    height: 100%;
+
+   overflow-x: hidden;
+}    
+nav ul
+{
+    list-style-type: none;
+    border-bottom:thin 2px rgb(0, 22, 22,0.4);
+}
+
+nav ul a
+{
+    display: inline;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+    transition: 0.5s ease-out;
+    font-size: 20px;
+    font-family: monospace;
+    position: relative;
+    color:#000;
+    display:block;
+    padding:5px;
+    text-decoration: none;
+}
+/* search bar */
+div
+{
+    margin-left: 220px;
+
+}
+#img
+{
+    margin-left: 220px;
+    overflow:scroll;
+}

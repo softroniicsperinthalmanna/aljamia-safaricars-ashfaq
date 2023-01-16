@@ -46,3 +46,16 @@ form.mainpage{
 img{
     height: 100px;
 }
+.text-red
+{
+  color: #0c81b3;
+
+}
+.text-red:hover
+{
+  color: rgb(0, 0, 0);
+}
+.text-red:focus
+{
+  color: aliceblue;
+}
