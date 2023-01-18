@@ -139,10 +139,7 @@ body
   color: #ffffff;
 }
 
-a
-{
 
-}
 
 
 
@@ -164,6 +161,10 @@ img{
 {
   margin-left: 220px;
 
+} 
+.container
+{
+  width: 100%;
 }
 #btn
 {
@@ -215,5 +216,5 @@ body{
   border-top: 1px solid rgba(10, 20, 30, 0.13);
 }
 .font-light {
-  font-weight: 300;
+  font-weight: 300;
 }
