@@ -31,7 +31,7 @@ nav
     place-items:center;
     font-family: monospace;
     border-radius: 5px;
-    max-width: 225px;
+    max-width: 325px;
     border-left: 2px thin rgb(255, 0, 0);
        overflow:auto;
        position: fixed;
@@ -39,7 +39,6 @@ nav
     float: left;
 
     height: 100%;
-    background-color: aqua;
 
    overflow-x: hidden;
 }    
@@ -67,7 +66,6 @@ nav ul a
 form
 {
     margin-left: 230px;
-    margin-right: 230px;
 
     margin-top:10px ;
 }
@@ -129,6 +127,17 @@ body
   background-color: #02c39a;
   color: #ffffff;
 }
+.btn-outline-t
+{
+  color: #4902c3;
+  border-color: #4902c3;
+  
+}
+.btn-outline-t:hover
+{
+  background-color: #4902c3;
+  color: #ffffff;
+}
 
 
 
@@ -150,7 +159,12 @@ img{
 }
 .col
 {
-  margin-left: 15%;
+  margin-left: 220px;
+
+} 
+.container
+{
+  width: 100%;
 }
 #btn
 {
@@ -160,7 +174,7 @@ img{
 }
 .c-sm
 {
-  margin-left:220px ;
+  margin-left:200px ;
 }
 /* inbox 
 body{
@@ -202,8 +216,5 @@ body{
   border-top: 1px solid rgba(10, 20, 30, 0.13);
 }
 .font-light {
-  font-weight: 300;
-}
-.bg-glass
-{
+  font-weight: 300;
 }

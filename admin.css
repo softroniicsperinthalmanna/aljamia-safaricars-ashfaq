@@ -31,6 +31,10 @@ img
 {
   background-color: #FE2310;
 }
+.btn-shaheen:hover
+{
+  background-color: #99241a;
+}
 .text-shaheen
 {
   color: #FE2310;
