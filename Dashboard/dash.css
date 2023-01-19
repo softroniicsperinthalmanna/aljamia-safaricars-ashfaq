@@ -162,7 +162,10 @@ img{
   margin-left: 220px;
 
 } 
-
+.container
+{
+  width: 100%;
+}
 #btn
 {
   height: 120px;
