@@ -13,7 +13,7 @@ img#logo
     width: auto;
 }
 
-  .container{
+  .container-fluid{
     display: grid;
     padding: 30px 60px;
     grid-column-gap: 20px;
