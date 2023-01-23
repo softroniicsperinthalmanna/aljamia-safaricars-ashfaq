@@ -1,0 +1,23 @@
+.container
+{
+    height: 500px;
+    width: auto;
+}
+a
+{
+    height: 100px;
+    width: auto;
+    
+}
+.container1
+{
+    margin-left:50px ;
+}
+.feature
+{
+    display: flex;
+}
+footer
+{
+    margin-top: 15%;
+}
