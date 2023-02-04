@@ -1,18 +1,25 @@
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.auth import views as auth_views
+
 from  . import views
 
 urlpatterns = [
+    path('login/',auth_views.LoginView.as_view(template_name='log.html'),name='login'),
+    path('logout/',auth_views.LoginView.as_view(template_name='logout.html'),name='logout'),
+    path('reg/', views.reg, name='reg'),
+    
+    
     path('',views.index,name='home'),
     path('accessories/',views.acc,name='acc'),
     path('sellyourcar/',views.sellcar,name='sellcar'), 
-    path('login/',views.log,name='login'),   
-    path('cars/',views.car,name='car'), 
+    
+
+    path('car/',views.car,name='car'), 
     path('service/',views.service,name='service'),   
     path('garage/',views.gar,name='gar'),
     path('feedback/',views.fb,name='fb'),
     path('testdrive/',views.test,name='test'),
-    path('reg/', views.reg, name='reg'),
     path('OTP/',views.otp,name='otp'),
     path('product/',views.product,name='product'),
     path('adress/',views.adress,name='adress'),
@@ -20,6 +27,7 @@ urlpatterns = [
     path('order_details/',views.order_details,name='order_details'),
     path('servicedt/',views.servicedt,name='servicedt'),
     path('testdrivedetails/',views.testdrivedetails,name='testdrivedetails'),
+    path('cars/',views.cars,name='cars'), 
 
     #<------------- admin------------------------------>
 

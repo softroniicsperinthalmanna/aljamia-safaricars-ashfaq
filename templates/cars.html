@@ -1,0 +1,343 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari cars</title>
+     <!-- {% comment %} <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="st.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="home.js"></script> {% endcomment %}  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="{% static 'css/c.css' %}">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+     <script src="{% static 'js/home.js.css' %}"></script>
+</head>
+<body>
+    
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white fw-bold" href="#"><img id="logo" src="{% static 'images/logo.png' %}" alt="" style="height:100px"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'acc' %}">Accessories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link "aria-current="page" href="{% url 'service' %}">service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="{% url 'gar' %}" >Garages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link "aria-current="page" href="{% url 'fb' %}">Feedback</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button"  aria-expanded="false">
+                options
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">My order</a></li>
+                <li><a class="dropdown-item" href="#">Service booking</a></li>
+                <li><a class="dropdown-item" href="">test drive details</a></li>
+
+                
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+         <a href="{%url 'login'%}" >  <button class="btn btn-outline-danger" type="button">Login</button></a>
+           <a href="{%url 'sellcar'%}"> <button class="btn btn-outline-danger" type="button">Sell your car</button><br> </a>
+           <a href="C:\Users\thanz\.vscode\soft\safari cars\cart\cart.html">  <i class="bi bi-cart3 fs-3 mx-2 text-warning "></i></a>
+
+          </form>
+        </div>
+      </div>
+    </nav>
+       <!-- searchbar -->
+       <div class="input-group">
+        <input type="search" class="form-control rounded m ms-5" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-primary me-5">search</button>
+      </div>
+             <!-- Dropdown -->
+      
+        <select name="dropdown" id="" class=" btn btn-outline-shaheen ms-5 my-5">
+            <option value="hybrid" >Hybrid</option>
+            <option value="Ev">EV</option>
+            <option value="Pertol">Pertol</option>
+            <option value="Deisel">Deisel</option>
+
+        </select>  
+  
+                     
+       <!-- cars -->
+       <div class="container m my-5">
+        <div class="row">
+            <div class="col-3"> 
+              <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+               <div class="card-body">
+                <img src="https://imgd.aeplcdn.com/664x374/cw/ec/36129/MercedesBenz-GClass-Exterior-137816.jpg?v=20181910123857&wm=0&q=75" alt="" class="card-image-top" style="width:auto; height:100px">
+                <h2 class="card-tittle text-uppercase">mercedes-benz </h2>
+                 <p class="card-text">G Wagon 
+               <h4 class="text-marwan">Rs1,12,40,000</h4></p>
+               <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+               <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-3"> 
+      <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+      <div class="card-body">
+        <img src="https://freepngimg.com/thumb/car/31510-9-car-transparent-background.png" alt="" class="card-image-top" style="width:auto; height:100px">
+        <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+    <p class="card-text">E class 
+       <h4 class="text-marwan">Rs13,40,000</h4></p>
+               <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+    </div>
+    </div>
+    </div>
+    <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+        <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg?q=75&wm=1 alt=" class="card-image-top" style="width:auto; height:100px">
+        <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+    <p class="card-text">S-class 
+       <h4 class="text-marwan">Rs14,40,000</h4></p>
+                  <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+      </div></div></div>
+    <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+        <img src="https://d28wu8o6itv89t.cloudfront.net/images/MercedesBenzCClasspng-1590124057963.png" alt="" class="card-image-top" style="width:auto; height:100px">
+        <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+    <p class="card-text">A-class  
+      <h4 class="text-marwan">Rs15,40,000</h4></p>
+                 <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+    </div>
+    </div>
+    </div>
+    </div> <br>
+           <!-- 2nd row -->
+           <div class="container m my-5">
+            <div class="row">
+                <div class="col-3"> 
+                  <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+                   <div class="card-body">
+                    <img src="https://imgd.aeplcdn.com/664x374/cw/ec/36129/MercedesBenz-GClass-Exterior-137816.jpg?v=20181910123857&wm=0&q=75" alt="" class="card-image-top" style="width:auto; height:100px">
+                    <h2 class="card-tittle text-uppercase">mercedes-benz </h2>
+                     <p class="card-text">G Wagon 
+                   <h4 class="text-marwan">Rs1,12,40,000</h4></p>
+                   <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"> 
+          <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+          <div class="card-body">
+            <img src="https://freepngimg.com/thumb/car/31510-9-car-transparent-background.png" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+        <p class="card-text">E class 
+           <h4 class="text-marwan">Rs13,40,000</h4></p>
+                   <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+        </div>
+        </div>
+        </div>
+        <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+            <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg?q=75&wm=1 alt=" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+        <p class="card-text">S-class 
+           <h4 class="text-marwan">Rs14,40,000</h4></p>
+                      <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+          </div></div></div>
+        <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+            <img src="https://d28wu8o6itv89t.cloudfront.net/images/MercedesBenzCClasspng-1590124057963.png" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+        <p class="card-text">A-class  
+          <h4 class="text-marwan">Rs15,40,000</h4></p>
+                     <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+        </div>
+        </div>
+        </div>
+        </div><br>
+                         <!-- 3rd row -->
+ 
+                         <div class="container m my-5">
+                          <div class="row">
+                              <div class="col-3"> 
+                                <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+                                 <div class="card-body">
+                                  <img src="https://imgd.aeplcdn.com/664x374/cw/ec/36129/MercedesBenz-GClass-Exterior-137816.jpg?v=20181910123857&wm=0&q=75" alt="" class="card-image-top" style="width:auto; height:100px">
+                                  <h2 class="card-tittle text-uppercase">mercedes-benz </h2>
+                                   <p class="card-text">G Wagon 
+                                 <h4 class="text-marwan">Rs1,12,40,000</h4></p>
+                                 <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-3"> 
+                        <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+                        <div class="card-body">
+                          <img src="https://freepngimg.com/thumb/car/31510-9-car-transparent-background.png" alt="" class="card-image-top" style="width:auto; height:100px">
+                          <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+                      <p class="card-text">E class 
+                         <h4 class="text-marwan">Rs13,40,000</h4></p>
+                         <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+                          <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg?q=75&wm=1 alt=" class="card-image-top" style="width:auto; height:100px">
+                          <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+                      <p class="card-text">S-class 
+                         <h4 class="text-marwan">Rs14,40,000</h4></p>
+                            <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+                        </div></div></div>
+                      <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+                          <img src="https://d28wu8o6itv89t.cloudfront.net/images/MercedesBenzCClasspng-1590124057963.png" alt="" class="card-image-top" style="width:auto; height:100px">
+                          <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+                      <p class="card-text">A-class  
+                        <h4 class="text-marwan">Rs15,40,000</h4></p>
+                           <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+                      </div>
+                      </div>
+                      </div>
+                      </div><br>
+                              <!-- 4th row -->
+                              <div class="container m my-5">
+                                <div class="row">
+                                    <div class="col-3"> 
+                                      <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+                                       <div class="card-body">
+                                        <img src="https://imgd.aeplcdn.com/664x374/cw/ec/36129/MercedesBenz-GClass-Exterior-137816.jpg?v=20181910123857&wm=0&q=75" alt="" class="card-image-top" style="width:auto; height:100px">
+                                        <h2 class="card-tittle text-uppercase">mercedes-benz </h2>
+                                         <p class="card-text">G Wagon 
+                                       <h4 class="text-marwan">Rs1,12,40,000</h4></p>
+                                       <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-3"> 
+                              <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+                              <div class="card-body">
+                                <img src="https://freepngimg.com/thumb/car/31510-9-car-transparent-background.png" alt="" class="card-image-top" style="width:auto; height:100px">
+                                <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+                            <p class="card-text">E class 
+                               <h4 class="text-marwan">Rs13,40,000</h4></p>
+                               <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+                                <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg?q=75&wm=1 alt=" class="card-image-top" style="width:auto; height:100px">
+                                <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+                            <p class="card-text">S-class 
+                               <h4 class="text-marwan">Rs14,40,000</h4></p>
+                                  <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+                              </div></div></div>
+                            <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+                                <img src="https://d28wu8o6itv89t.cloudfront.net/images/MercedesBenzCClasspng-1590124057963.png" alt="" class="card-image-top" style="width:auto; height:100px">
+                                <h2 class="card-tittle text-uppercase">mercedes-benz  </h2>
+                            <p class="card-text">A-class  
+                              <h4 class="text-marwan">Rs15,40,000</h4></p>
+                                 <a name="butn" id="butn" class="btn btn-outline-shaheen" href="{%url 'car'%}" role="button">Know more</a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                                    <br>
+                                
+                              <nav aria-label="Page navigation example ">
+                                <ul class="pagination d-flex justify-content-center">
+                                  <li class="page-item "><a class="page-link text text-muted" href="#">Previous</a></li>
+                                  <li class="page-item"><a class="page-link text-info" href="#">1</a></li>
+                                  <li class="page-item"><a class="page-link text-info" href="#">2</a></li>
+                                  <li class="page-item"><a class="page-link text-info" href="#">3</a></li>
+                                  <li class="page-item"><a class="page-link text-muted" href="#">Next</a></li>
+                                </ul>
+                              </nav>
+                              
+                                <div class="container2 mt-5"><h4 class="aboutus">About US</h4></div>
+                                <hr>
+
+                                <footer class="footer">
+                                  <div class="container">
+                                       <div class="row">
+                                            <div class="col-sm-2">
+                                                 <div class="footer_logo">
+                                                      <img  class="container-sm" src="logo.png" style="height: 150px; width:auto;"> 
+                                                 </div>
+                                             
+                                            </div>
+                                            <div class="col-sm-3">
+                                                 <h4>Meet us</h4>
+                                                 <p>
+                                                      Lorem., Lorem, ipsum.,
+                                                      Lorem, ipsum dolor.
+                                                      000000
+                                                 </p>
+                                                 <p>
+                                                      NH-66, Lorem, ipsum., 
+                                                      Lorem., Lorem, ipsum.,
+                                                      Lorem, ipsum dolor.
+                                                      000000
+                                                      673014
+                                                 </p>
+                                                 <p>
+                                                  Lorem., Lorem, ipsum.,
+                                                  Lorem, ipsum dolor.
+                                                  000000
+                                                      
+                                                 </p>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                 <h4>Call us</h4>
+                                                 <p>(+91) 123654789
+                                                      <!-- (+91) 85930 19090 <br> -->
+                                                 </p>
+                                                 <h4>Write to us</h4>
+                                                 <a href="#">Email</a>
+                                            </div>
+                                        
+                                            <div class="col-sm-3 ">
+                                                 <div class="top_nav">
+                                                      <h4>Connect with us</h4>
+                                                      <div class="socia_icons">
+                                                           <a class="social" href="#" target="_blank">
+                                                                <i class="bi bi-facebook fa-2x">
+                                                                </i>
+                                                           </a>
+                                                           <a class="social" href="#" target="_blank">
+                                                                <i class="bi bi-twitter fa-2x">
+                                                                </i>
+                                                           </a> 
+                                                           <a class="social" href="#" target="_blank">
+                                                                <i class="bi bi-instagram fa-2x">
+                                                                </i>
+                                                           </a>
+                                                           <a class="social" href="#" target="_blank">
+                                                                <i class="fa fa-whatsapp fa-2x">
+                                                                </i>
+                                                           </a> 
+                                                           <a class="social" href="#" target="_blank">
+                                                                <i class="bi bi-youtube fa-2x">
+                                                                </i>
+                                                           </a>
+                                                      </div>
+                                                  
+                                                 </div>
+                                            </div>    
+                                       </div>
+                                  </div>
+                             </footer>                            
+                              
+                            </body>
+</html>

@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate ,logout
 from django.contrib import messages
 from .forms import UserRegistrationForm
- 
+
 
 # Create your views here.
 def index(request):
@@ -13,7 +13,24 @@ def  acc(request):
 def  sellcar(request):
     return render(request,'sellcar.html')
 def  log(request):
-    return render(request,'log.html')
+        if request.method == 'POST':
+             username = request.POST.get('username')
+             password = request.POST.get('password')
+
+             user = authenticate(request, username=username, password=password)
+             if user is not None:
+                 login(request, user)
+                 return redirect('home')
+             else:
+                 messages.info(request, 'Username or password is incorrect')
+
+        context ={}
+        return render (request, 'log.html', context)
+    
+def  logout(request):
+    logout(request)
+    return redirect(login)
+    
 def  car(request):
     return render(request,'car.html')
 def  service(request):
@@ -27,18 +44,22 @@ def  test(request):
 def  adress(request):
     return render(request,'adress.html')
 def reg(request):
-    if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
+    # if request.user.is_authenticated:
+    #     return redirect('home')
+    # else:
+        
+        if request.method == 'POST':
+            form = UserRegistrationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                # user = form.cleaned_data.get('username')
+                messages.success(request, 'Your account has been created. You can log in now!')    
+                return redirect('login')
+        else:
+            form = UserRegistrationForm()
 
-            messages.success(request, f'Your account has been created. You can log in now!')    
-            return redirect('login')
-    else:
-        form = UserRegistrationForm()
-
-    context = {'form': form}
-    return render(request, 'reg.html', context)
+        context = {'form': form}
+        return render(request, 'reg.html', context)
 
 
 
@@ -56,7 +77,8 @@ def  servicedt(request):
     return render(request,'servicedt.html')
 def testdrivedetails(request):
     return render(request,'testdrivedetails.html')
-
+def  cars(request):
+    return render(request,'cars.html')
   
     #<------------- admin------------------------------>
 # def  a_index(request):
