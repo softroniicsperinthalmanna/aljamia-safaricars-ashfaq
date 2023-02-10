@@ -12,17 +12,18 @@ urlpatterns = [
     
     path('',views.index,name='home'),
     path('accessories/',views.acc,name='acc'),
-    path('sellyourcar/',views.sellcar,name='sellcar'), 
+    path('sellyourcar/',views.SellCarView.as_view(),name='sellcar'), 
     
 
     path('car/',views.car,name='car'), 
-    path('service/',views.service,name='service'),   
+    path('service/',views.serviceView.as_view(),name='service'),   
     path('garage/',views.gar,name='gar'),
-    path('feedback/',views.fb,name='fb'),
-    path('testdrive/',views.test,name='test'),
+    path('feedback/',views.feedbackView.as_view(),name='fb'),
+    
+    path('testdrive/',views.testView.as_view(),name='test'),
     path('OTP/',views.otp,name='otp'),
     path('product/',views.product,name='product'),
-    path('adress/',views.adress,name='adress'),
+    path('adress/',views.addressView.as_view(),name='adress'),
     path('cart/',views.cart,name='cart'),
     path('order_details/',views.order_details,name='order_details'),
     path('servicedt/',views.servicedt,name='servicedt'),
@@ -31,7 +32,7 @@ urlpatterns = [
 
     #<------------- admin------------------------------>
 
-    path('admin/',admin.site.urls),
+    # path('admin/',admin.site.urls),
     #<------------- admin------------------------------>
     # path('a_index/',views.a_index,name='a_log'),
     # path('a_reg/',views.a_reg,name='a_register'),

@@ -16,6 +16,8 @@
      <link rel="stylesheet" href="{% static 'css/acc.css' %}">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
      <script src="{% static 'js/home.js.css' %}"></script>
+     <link rel="website icon" type="png" href="{% static 'images/logo.png' %}">
+
 </head>
 <body>
      <!-- navbar -->
@@ -62,14 +64,9 @@
           </div>
         </div>
       </nav>
-          <form class="d-flex" role="search">
-         <a href="C:\Users\thanz\.vscode\soft\safari cars\login\log.html" >  <button class="btn btn-outline-danger" type="button">Login</button></a>
-           <a href="C:\Users\thanz\.vscode\soft\safari cars\sell your car\sellcar.html"> <button class="btn btn-outline-danger" type="button">Sell your car</button><br> </a>
-          </form>
-        </div>
-      </div>
-    </nav>
-      <div class="container-1 text-lg-center fs-3 mx-3 text-capitalize mt-5 text-sm-end">Enter the following data to book test drive :</div>
+         
+       
+      {% comment %} <!-- <div class="container-1 text-lg-center fs-3 mx-3 text-capitalize mt-5 text-sm-end">Enter the following data to book test drive :</div>
       <div class="row ">
         <div class="col-3"><input type="text" placeholder="name" class="container m mx-2 ps-5"></div>
         <div class="col-3"><input type="text" placeholder="Phone " class="container m mx-2 ps-5"></div>
@@ -86,7 +83,29 @@
     <div class="float-end  mx-5 my-5">
     <a name="" id="btn" class="btn btn-outline-primary mx-5 my-2" href="#" role="button">Done</a>
     <button type="button" id="btn" class="btn btn-outline-primary">Cancel</button>
-  </div>
+  </div> --> {% endcomment %}
+  <form action="" method="post">
+    {% csrf_token %}
+    {% for i in form %}
+      <p>{{ i.label_tag }}:{{ i }}</p><small class="text_danger">{{i.errors|striptags}}</small><br>
+    {% endfor %}
+    <input type="sumbit" value="submit" class="btn btn-outline-primary mx-5 my-2">
+    <input type="submit">
+    {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+        <p class="alert alert-danger my-3">{{error}}</p>
+        {% endfor %}
+      {% endif %}
+      {% if messages %}
+        {% for msg in messages %}
+          <div class="alert alert-{{msg.tags}}" role="alert">
+            {{msg}}
+          </div>
+        {% endfor %}
+      {% endif %}
+  </form>
+
+
 
   <div class="container2 mt-5"><h4 class="aboutus">About US</h4></div>
 

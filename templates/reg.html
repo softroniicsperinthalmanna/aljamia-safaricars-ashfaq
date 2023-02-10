@@ -16,8 +16,10 @@
      <link rel="stylesheet" href="{% static 'css/reg.css' %}">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
      <script src=""{% static 'js/r.js' %}""></script>
+     <link rel="website icon" type="png" href="{% static 'images/logo.png' %}">
+
     <script>
-      var form_fields=document.getElementsByTagName('div')
+      var form_fields=document.getElementsByTagName('form')
       form_fields[1].placeholder="Username";
       form_fields[2].placeholder="First name";
       form_fields[3].placeholder="Last name";
@@ -69,7 +71,7 @@
 
                   <div class="form-outline form-muted mb-1 text-black">
                      <!-- <input type="email" id="typeEmailX" class="form-control form-control-lg"  placeholder="Email"/>  -->
-                     {{form.email.label}}&nbsp;&nbsp;&nbsp;
+                     {{form.email.label}}&nbsp;&nbsp;
                      &nbsp;&nbsp;&nbsp; {{form.email}}
 
                   </div>
@@ -83,7 +85,7 @@
 
                   <div class="form-outline form-muted mb-4   text-black">
                     <!-- <input type="password" id="cPassword" class="form-control form-control-lg" placeholder="Confirm Password" /> -- -->
-                    {{form.password2.label}}&nbsp;&nbsp;&nbsp;
+                    {{form.password2.label}}&nbsp;
                     {{form.password2}}
 
                   </div>
