@@ -32,18 +32,18 @@ class sell_your_car(models.Model):
      email = models.EmailField(max_length=255)
      brand= models.CharField(max_length=255)
      model= models.CharField(max_length=255)
-     year= models.CharField(max_length=255)
-     km_driven= models.CharField(max_length=255)
-     mailage= models.CharField(max_length=255)
+     year= models.IntegerField()
+     km_driven= models.IntegerField()
+     mailage= models.IntegerField()
      Color= models.CharField(max_length=255)
-     no_owner= models.CharField(max_length=255)
+     no_owner= models.IntegerField()
      engine_CC= models.CharField(max_length=255)
-     insurence_validity= models.CharField(max_length=255)
-     year_of_registration= models.CharField(max_length=255)
+     insurence_validity= models.IntegerField()
+     year_of_registration= models.IntegerField()
      transmisson= models.CharField(max_length=255, choices=GEAR, default='manual')
      fuel=models.CharField(max_length=255,choices=FUEL, default='petrol')
      discription=models.CharField(max_length=255)
-     image = models.ImageField(upload_to=None, max_length = 100)
+     image = models.ImageField( max_length = 100)
      parking_sensor = models.BooleanField( "parking_sensor",default=False)
      center_lock = models.BooleanField( "center_lock",default=False)
      Rear_camera = models.BooleanField( "Rear_camera",default=False)
@@ -73,9 +73,13 @@ class address(models.Model):
 
 
  
-service =(
-        ('water','WATER'),
-        ('running','RUNNING')
+servic =(
+          ('water service','WATER SERVICE'),
+          ('running repair','RUNNING REPAIR'),
+          ('Accessories fitiing','ACCESSORIES FITTING'),
+          ('Paint & polish','PAINT & POLISH'),
+          ('Oil change','OIL CHANGE'),
+          ('others','OTHERS')
 )   
 delv =(
         ('pickup','PICKUP'),
@@ -91,8 +95,8 @@ class service(models.Model):
         car=models.CharField(max_length=255)
         brand=models.CharField(max_length=255)
         reg_no=models.CharField(max_length=255)
-        serv=models.CharField(max_length=255, choices=service, default='water')#drop
-        deliv=models.CharField(max_length=255)#drop
+        serv=models.CharField(max_length=255, choices=servic , default='water')#drop
+        deliv=models.CharField(max_length=255,choices=delv , default='PICKUP')#drop
         date=models.DateField()
 class test(models.Model):
         user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)

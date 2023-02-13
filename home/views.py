@@ -1,11 +1,11 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from django.contrib.auth import login, authenticate ,logout
+from django.contrib.auth import login, authenticate , logout 
 from django.contrib import messages
 from . forms import UserRegistrationForm
 from . forms import SellcarForm,fbForm,addressForm,testForm,serviceForm
 from django .views import View
-from .models import sell_your_car,feedback,address,test
+from .models import sell_your_car,feedback,address,test,service
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -85,10 +85,11 @@ def  car(request):
 class serviceView(View):
      def get(self,request):
         form=serviceForm
-        return render(request,'fb.html',locals())
+        return render(request,'service.html',locals())
      def post(self,request):
         form=serviceForm(request.POST, request.FILES)  
         if form.is_valid():
+            user=request.user
             name = form.cleaned_data['name']
             mobile = form.cleaned_data['mobile']
             email = form.cleaned_data['email']
@@ -98,7 +99,9 @@ class serviceView(View):
             serv=form.cleaned_data['serv']
             deliv=form.cleaned_data['deliv']
             date=form.cleaned_data['date']
-            form.save()
+            # form.save()
+            reg=service(user=user,name=name,mobile= mobile, email=email, car= car,brand=brand, reg_no=reg_no,serv=serv,deliv=deliv,date=date)   
+            reg.save()
             messages.success(request, " your servic has been booked successfully")
             return redirect('service')
         else:

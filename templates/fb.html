@@ -67,8 +67,9 @@
           </div>
         </div>
       </nav>
-	
-      {% comment %} <!-- <div class="container py-5 ">
+      <form action="" method="post">
+        {% csrf_token %}    
+      <div class="container py-5 ">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-12 col-md-8 col-lg-6 col-xl-5">
             <div class="card bg-banger text-black" style="border-radius: 1rem;">
@@ -79,27 +80,37 @@
 
                   <h2 class="fw-bold mb-2 text-uppercase"><img src="{% static 'images/logo.png' %}" style="height: 100px;"></h2>
     
-                  <div class="form-outline form-muted mb-1 text-black">
-                    <input type="text" id="text" class="form-control form-control-lg" placeholder="Your name">
+                  <div class="form-outline form-muted mb-1 text-black my-4 ">
+                    <!-- <input type="text" id="text" class="form-control form-control-lg" placeholder="Your name"> -->
+                    {{form.name}}
 
                   </div>
-                  <div class="form-outline form-muted mb-1 text-black">
-                    <input type="email" id="typeEmailX" class="form-control form-control-lg"  placeholder="phone"/>
+                   <div class="form-outline form-muted mb-1 text-black my-4">
+                    <!-- <input type="email" id="typeEmailX" class="form-control form-control-lg"  placeholder="phone"/> -->
+                    {{form.mobile}}
+
                   </div>
-                  <div class="form-outline form-muted mb-1 text-black">
-                    <input type="email" id="typeEmailX" class="form-control form-control-lg"  placeholder="Email"/>
+                  <div class="form-outline form-muted mb-1 text-black my-4">
+                    <!-- <input type="email" id="typeEmailX" class="form-control form-control-lg"  placeholder="Email"/> -->
+                    {{form.email}}
+
                   </div>
     
-                  <div class="form-group" id="message">
-                    <textarea type="password" id="typePasswordX" class="form-control form-control-lg mb-4" placeholder="Message"  rows="5" style="resize: none;"></textarea>
-                  </div>
+                  <div class="form-group my-4" id="message" rows="5" style="resize: none;">
+                   <!-- <textarea type="password" id="typePasswordX" class="form-control form-control-lg mb-4" placeholder="Message"  rows="5" style="resize: none;"> ] -->
+                      {{form.message|safe}}
+
+                   <!-- </textarea>  -->
+                  </div> 
                  
     
+                  <input type="submit" value="Submit" class="btn btn-outline-success btn-lg px-5">
+                  <input type="reset" value="Reset" class="btn btn-outline-danger btn-lg px-5">
+
+
     
-                  <div class="btn btn-outline-danger btn-lg px-5 " type="submit">Submit</div>
     
-    
-                </div> --> {% endcomment %}
+                </div> 
               
     
                 
@@ -109,13 +120,13 @@
           </div>
         </div>
       </div>
-      <form action="" method="post">
+      <!-- <form action="" method="post">
         {% csrf_token %}
         {% for i in form %}
          <p>{{ i.label_tag}}:{{ i}}</p><small class="text-danger">{{i.errors|striptags}}</small> <br>
       {% endfor %}
       <input type="submit" value="submit" class="btn btn-secondary">
-   
+    -->
       {% if form.non_field_errors %}
         {% for error in form.non_field_errors %}
             <p class="alert alert-danger my-3">{{error}}</p>

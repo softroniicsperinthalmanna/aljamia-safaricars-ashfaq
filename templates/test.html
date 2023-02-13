@@ -65,32 +65,37 @@
         </div>
       </nav>
          
-       
-      {% comment %} <!-- <div class="container-1 text-lg-center fs-3 mx-3 text-capitalize mt-5 text-sm-end">Enter the following data to book test drive :</div>
-      <div class="row ">
-        <div class="col-3"><input type="text" placeholder="name" class="container m mx-2 ps-5"></div>
-        <div class="col-3"><input type="text" placeholder="Phone " class="container m mx-2 ps-5"></div>
+      <form action="" method="post">
+        {% csrf_token %}
+  <div class="container-1 text-lg-center fs-3 mx-3 text-capitalize mt-5 text-sm-end text-bg-info">Enter the following data to book test drive :</div>
+      <div class="container float-lg-center">
+          <div class="col-sm-8 col-lg-4 col-lg-center m mx-2 my-3 ps-5 ">
+          {% for i in form %}  
+          <p>{{ i }}</p><small class="text_danger">{{i.errors|striptags}}</small><br>
+          {% endfor %}</div> 
+        {% comment %} <div class="col-3"><input type="text" placeholder="Phone " class="container m mx-2 ps-5"></div>
         <div class="col-3"><input type="text" placeholder="email" class="container m mx-2 ps-5"></div>
         <div class="col-3"><input type="text" placeholder="name" class="container m mx-2 ps-5"></div>
-      </div>
-      <div class="btn">
+      </div> {% endcomment %}
+      {% comment %} <div class="btn">
       <div class="container-3 text-lg-start fs-3 mx-5 text-capitalize mt-5 text-sm-start">Select date :
         <input type="date" id="form"   placeholder="Reg.no" class="container-3 mx-5 mt-5 " /></div>  
         <div class="container-3 text-lg-start fs-3 mx-5 text-capitalize mt-5 text-sm-start">Select Time :
             <input type="time" id="form"   placeholder="Reg.no" class="container-3 mx-5 mt-5 " /></div>  
      
-    </div>
-    <div class="float-end  mx-5 my-5">
-    <a name="" id="btn" class="btn btn-outline-primary mx-5 my-2" href="#" role="button">Done</a>
-    <button type="button" id="btn" class="btn btn-outline-primary">Cancel</button>
-  </div> --> {% endcomment %}
-  <form action="" method="post">
-    {% csrf_token %}
+    </div> {% endcomment %}
+    <div class="float-sm-start float-lg-center  mx-5 my-5">
+      <input type="reset" class="btn btn-outline-primary mx-5 my-2 px-4">
+
+      <input type="submit" class="btn btn-outline-primary mx-5 my-2 px-4">
+
+  </div> 
+ {% comment %} <form action="" method="post">
+     {% csrf_token %}
     {% for i in form %}
       <p>{{ i.label_tag }}:{{ i }}</p><small class="text_danger">{{i.errors|striptags}}</small><br>
-    {% endfor %}
-    <input type="sumbit" value="submit" class="btn btn-outline-primary mx-5 my-2">
-    <input type="submit">
+    {% endfor %} {% endcomment %}
+    {% comment %} <input type="sumbit" value="submit" class="btn btn-outline-primary mx-5 my-2"> {% endcomment %}
     {% if form.non_field_errors %}
       {% for error in form.non_field_errors %}
         <p class="alert alert-danger my-3">{{error}}</p>
@@ -106,7 +111,7 @@
   </form>
 
 
-
+ {% comment %}
   <div class="container2 mt-5"><h4 class="aboutus">About US</h4></div>
 
   <hr>
@@ -116,11 +121,11 @@
          <div class="row">
               <div class="col-sm-2">
                    <div class="footer_logo">
-                        <img  class="container-sm" src="logo.png" style="height: 150px; width:auto;"> 
+                        <img  class="container-sm" src="{% static 'images/logo.png' %}" style="height: 150px; width:auto;"> 
                    </div>
                
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-8">
                    <h4>Meet us</h4>
                    <p>
                         Lorem., Lorem, ipsum.,
@@ -141,7 +146,7 @@
                         
                    </p>
               </div>
-              <div class="col-sm-2">
+              <div class="col-sm-8">
                    <h4>Call us</h4>
                    <p>(+91) 123654789
                         <!-- (+91) 85930 19090 <br> -->
@@ -180,6 +185,6 @@
               </div>    
          </div>
     </div>
-</footer>
+</footer> {% endcomment %}
 </body>
 </html>

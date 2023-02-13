@@ -20,6 +20,8 @@
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
 </head>
 <body>
      <!-- navbar -->
@@ -81,23 +83,29 @@
         </div>
     </div>
     <!-- form your details -->
-    {% comment %} <form action="" method="post">
+   <form action="" method="POST">
+    {% csrf_token %}
+
      <div class="mainfrm">
       <div class="container-fluid"><h3>Your details</h3></div>
     <div class="form">
-        <input type="text" id="text" class="form" placeholder="Your name">
+        {% comment %} <input type="text" id="text" class="form" placeholder="Your name">
         <input type="text" id="typeEmail" class="form"  placeholder="Phone number"/>
-        <input type="email" id="typeEmail" class="form"  placeholder="Email"/>
+        <input type="email" id="typeEmail" class="form"  placeholder="Email"/> {% endcomment %}
+        {{form.name}}        {{form.mobile}}          {{form.email}}
+
+
       </div>
     </div>
       <hr class="hr">
           <!-- form car details -->
-
       <div class="container-fluid"><h3>Car details</h3></div>
       <div class="form">
-          <input type="text" id="text" class="form" placeholder="Car model">
+          {% comment %} <input type="text" id="text" class="form" placeholder="Car model">
           <input type="text" id="typeEmail" class="form"  placeholder="brand"/>
-          <input type="text" id="typeEmail" class="form"  placeholder="Reg.no"/>
+          <input type="text" id="typeEmail" class="form"  placeholder="Reg.no"/> {% endcomment %}
+          {{form.car}}        {{form.brand }}          {{form.reg_no}}
+
         </div>
       </div>
         <hr class="hr">
@@ -105,7 +113,7 @@
 
         <div class="container-fluid"><h3>Service details</h3></div>
         <div class="form-1">
-          <select class="custom-select" style="max-width: 500px;">
+          {% comment %} <select class="custom-select" style="max-width: 500px;">
             <option selected="">Running Repair</option>
             <option value="1">Water service</option>
             <option value="2">Accessories fitiing</option>
@@ -121,24 +129,27 @@
           <option value="3">Noy required</option>
          
           
-      </select>
-      <button class="btn btn-danger" type="submit">Book</button>
+      </select> {% endcomment %}
+      {{form.serv}}        {{form.deliv }}          
+
+      <input type="submit" value="submit" class="btn btn-danger">
+
       <button class="btn btn-outline-secondary" type="reset">clear</button>
-      <input type="date" id="form"   placeholder="date"/>
+      {% comment %} <input type="date" id="form"   placeholder="date"/> {% endcomment %}
 
-
+      {{form.date}}
         </div>
         </div>
       </div>   
-    </form>         {% endcomment %}
-      <form action="" method="POST" class="form-middile form-horizontal" enctype="multipart/form-data">
+    </form>         
+      {% comment %} <form action="" method="POST" class="form-middile form-horizontal" enctype="multipart/form-data">
         {% csrf_token %}
         {% for i in form %}
            <p>{{ i.label_tag}}:{{ i}}</p><small class="text-danger">{{i.errors|striptags}}</small> <br>
         {% endfor %}
         <input type="submit" value="submit" class="btn btn-danger">
-     
-        {% if form.non_field_errors %}
+      {% endcomment %}
+       {% if form.non_field_errors %}
           {% for error in form.non_field_errors %}
               <p class="alert alert-danger my-3">{{error}}</p>
           {% endfor %}
@@ -149,7 +160,7 @@
                {{msg}}
              </div>
          {% endfor %}
-       {% endif %} 
+       {% endif %}  
        </form>
       <div class="container2 mt-5"><h4 class="aboutus">About US</h4></div>
 
