@@ -105,3 +105,89 @@ class test(models.Model):
         email = models.EmailField(max_length=255,null=True)
         date=models.DateField()
         time=models.TimeField()
+
+
+
+
+GEAR =(
+        ('automatic','AUTOMATIC'),
+        ('manual','MANUAL')
+)
+FUEL= (
+        ('petrol','PETROL'),
+        ('deisel','DEISEL'),
+        ('hybrid','HYBRID'),
+        ('ev','ELECTRIC'),
+
+
+)
+class add_vehicle(models.Model):
+   
+     
+     brand= models.CharField(max_length=255)
+     model= models.CharField(max_length=255)
+     year= models.IntegerField()
+     km_driven= models.IntegerField()
+     mailage= models.IntegerField()
+     Color= models.CharField(max_length=255)
+     no_owner= models.IntegerField()
+     engine_CC= models.CharField(max_length=255)
+     insurence_validity= models.IntegerField()
+     year_of_registration= models.IntegerField()
+     transmisson= models.CharField(max_length=255, choices=GEAR, default='manual')
+     fuel=models.CharField(max_length=255,choices=FUEL, default='petrol')
+     discription=models.CharField(max_length=255)
+     image = models.ImageField( max_length = 100)
+     parking_sensor = models.BooleanField( "parking_sensor",default=False)
+     center_lock = models.BooleanField( "center_lock",default=False)
+     Rear_camera = models.BooleanField( "Rear_camera",default=False)
+     Navigation_system = models.BooleanField( "Navigation_system",default=False)
+     Adjustable_stearing = models.BooleanField( "Adjustable_stearing",default=False)
+     c_price= models.IntegerField(null=True)
+
+class add_product(models.Model):
+        p_name=models.CharField(max_length=255)
+        p_price=models.IntegerField()
+        discription=models.CharField(max_length=255)
+        image = models.ImageField( max_length = 100)
+
+
+        
+class l_cars(models.Model):
+     l_brand= models.CharField(max_length=255)
+     l_model= models.CharField(max_length=255)
+     l_year= models.IntegerField()
+     l_km_driven= models.IntegerField()
+     l_Color= models.CharField(max_length=255)
+     l_no_owner= models.IntegerField()
+     l_engine_CC= models.CharField(max_length=255)
+     l_insurence_validity= models.IntegerField()
+     l_transmisson= models.CharField(max_length=255, choices=GEAR, default='manual')
+     l_fuel=models.CharField(max_length=255,choices=FUEL, default='petrol')
+     l_discription=models.CharField(max_length=255)
+     l_image = models.ImageField( max_length = 100)
+     l_price =models.IntegerField()
+
+class l_bikes(models.Model):
+     b_brand= models.CharField(max_length=255)
+     b_model= models.CharField(max_length=255)
+     b_year= models.IntegerField()
+     b_km_driven= models.IntegerField()
+     b_Color= models.CharField(max_length=255)
+     b_no_owner= models.IntegerField()
+     b_engine_CC= models.CharField(max_length=255)
+     b_insurence_validity= models.IntegerField()
+     b_transmisson= models.CharField(max_length=255, choices=GEAR, default='manual')
+     b_fuel=models.CharField(max_length=255,choices=FUEL, default='petrol')
+     b_discription=models.CharField(max_length=255)
+     b_image = models.ImageField( max_length = 100) 
+     b_price =models.IntegerField()
+
+class add_garage(models.Model):
+        place = models.CharField(max_length=255)
+        mobile = models.IntegerField()
+        g_image = models.ImageField( max_length = 100) 
+        g_discription=models.CharField(max_length=255)
+
+class add_featre_ad(models.Model):
+        f_image = models.ImageField( max_length = 100) 
