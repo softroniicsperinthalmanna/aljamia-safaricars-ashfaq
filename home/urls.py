@@ -18,6 +18,8 @@ urlpatterns = [
     path('car/',views.car,name='car'), 
     path('service/',views.serviceView.as_view(),name='service'),   
     path('garage/',views.gar,name='gar'),
+    path('ad/',views.ad,name='ad'),
+
     path('feedback/',views.feedbackView.as_view(),name='fb'),
     
     path('testdrive/',views.testView.as_view(),name='test'),

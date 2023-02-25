@@ -5,12 +5,19 @@ from django.contrib import messages
 from . forms import UserRegistrationForm
 from . forms import SellcarForm,fbForm,addressForm,testForm,serviceForm
 from django .views import View
-from .models import sell_your_car,feedback,address,test,service
+from .models import *
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+   laxury_cars= l_cars.objects.all()
+   laxury_bikes= l_bikes.objects.all()
+   product= dis_product.objects.all()
+
+
+   return render(request,'index.html',locals())
 def  acc(request):
-    return render(request,'acc.html')
+    acc= add_product.objects.all()
+
+    return render(request,'acc.html',locals())
 # def  sellcar(request):
 #     form=SellcarForm
 #     return render(request,'sellcar.html',locals())
@@ -110,7 +117,13 @@ class serviceView(View):
         return render (request,'service.html', locals())
 
 def  gar(request):
-    return render(request,'gar.html')
+    gar= add_garage.objects.all()
+
+    return render(request,'gar.html',locals())
+def  ad(request):
+    ad= add_featre_ad.objects.all()
+
+    return render(request,'ad.html',locals())
 
 class feedbackView(View):
     def get(self,request):
@@ -216,11 +229,17 @@ def  cart(request):
 def  order_details(request):
     return render(request,'order_details.html')
 def  servicedt(request):
-    return render(request,'servicedt.html')
+    ser= service.objects.all()
+
+    return render(request,'servicedt.html',locals())
+
 def testdrivedetails(request):
-    return render(request,'testdrivedetails.html')
+    tst=test.objects.all()
+    return render(request,'testdrivedetails.html',locals())
 def  cars(request):
-    return render(request,'cars.html')
+    car= add_vehicle.objects.all()
+
+    return render(request,'cars.html',locals())
   
     #<------------- admin------------------------------>
 # def  a_index(request):

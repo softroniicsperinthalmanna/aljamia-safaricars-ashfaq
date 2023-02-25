@@ -16,20 +16,24 @@
 </head>
 <body>
  
-  
+  {% for i in ser %}
+
   <div class="card " style="width: 18rem;margin-left:40% ">
     <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoSREAWBsES4-Q1SvEJi0Xfl5WLqYAR_DV96gYsrPZBJ00TCuEsPDGzpMGPVLsVcD9Xro&usqp=CAU" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title text-muted mb-0">Water service</h5>
-      <p class="card-text text-muted mb-0">Peter.</p>
-      <p class="card-text text-muted mb-0">1234567899</p>
-      <p class="card-text text-muted mb-0">peter@gmail.com</p>
+
+      <h5 class="card-title text-muted mb-0">{{ i.serv }}</h5>
+      <p class="card-text text-muted mb-0">{{ i.user }}</p>
+      <p class="card-text text-muted mb-0">{{ i.name}}</p>
+      <p class="card-text text-muted mb-0">{{i.mobile}}</p>
+      <p class="card-text text-muted mb-0">{{i.deliv}}</p>
+      <p class="card-text text-muted mb-0">{{i.email}}</p>
 
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item text-muted mb-0" >9:00AM</li>
-      <li class="list-group-item text-muted mb-0">21/2/2023</li>
-      <li class="list-group-item text-muted mb-0">Rolls Royce</li>
+      <li class="list-group-item text-muted mb-0" >{{i.date}}</li>
+      <li class="list-group-item text-muted mb-0">{{i.time}}</li>
+      <li class="list-group-item text-muted mb-0">{{i.car}}</li>
     </ul>
     <div class="card-body">
     <div class="d-grid gap-2">
@@ -38,6 +42,7 @@
     </div>  
     </div>
   </div>
-    
+  {% endfor %}
+
 </body>
 </html>

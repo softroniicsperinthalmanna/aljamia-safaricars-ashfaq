@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -33,12 +34,17 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'home',
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+   # 'jet_django',#jet
+
+
 ]
 
 MIDDLEWARE = [
@@ -131,3 +137,24 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'data/')
 MEDIA_URL = '/media/'
+
+#django admin jet
+JET_DEFAULT_THEME = 'default'
+JET_THEMES = [
+    {
+        'theme': 'default', # Change this to the theme you want to use
+        'color': '#47bac1',
+        'title': 'Default'
+    },
+    {
+        'theme': 'green',
+        'color': '#44b78b',
+        'title': 'Green'
+    },
+    {
+        'theme': 'light-gray',
+        'color': '#f5f5f5',
+        'title': 'Light Gray'
+    },
+]
+

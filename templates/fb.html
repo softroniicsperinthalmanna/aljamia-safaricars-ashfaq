@@ -47,14 +47,17 @@
               <li class="nav-item">
                 <a class="nav-link active"aria-current="page" href="{% url 'fb' %}">Feedback</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link "aria-current="page" href="{% url 'ad' %}"> Pleased Applicants</a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   options
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">My order</a></li>
-                  <li><a class="dropdown-item" href="#">Service booking</a></li>
-                  <li><a class="dropdown-item" href="#">test drive details</a></li>
+                  <li><a class="dropdown-item" href="{%url 'order_details'%}">My order</a></li>
+                  <li><a class="dropdown-item" href="{%url 'servicedt'%}">Service booking</a></li>
+                  <li><a class="dropdown-item" href="{%url 'testdrivedetails'%}">test drive details</a></li>
 
                   
                 </ul>

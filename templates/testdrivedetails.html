@@ -16,20 +16,26 @@
 <body>
  
   
+  {% for i in tst %}
+    
+    
     <div class="card " style="width: 18rem;margin-left:40% ">
-        <img class="card-img-top" src="https://imgd.aeplcdn.com/664x374/cw/ec/30181/RollsRoyce-Phantom-VIII-Exterior-124069.jpg?wm=0&q=75" alt="Card image cap">
+        <img class="card-img-top" src="https://www.buycarsonline.in/images/test-drive.jpg" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title text-muted mb-0">RollsRoyce-Phantom-</h5>
-          <p class="card-text text-muted mb-0">Peter</p>
-          <p class="card-text text-muted mb-0">1234567899</p>
-          <p class="card-text text-muted mb-0">peter@gmail.com</p>
+          <h5 class="card-title text-muted mb-0"></h5>
+          <p class="card-text text-muted mb-0 text-uppercase">{{i.user}}</p>
+          <p class="card-text text-muted mb-0 text-uppercase">{{i.name}}</p>
+          <p class="card-text text-muted mb-0">{{i.email}}</p>
 
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-muted mb-0">9am-12pm</li>
-          <li class="list-group-item text-muted mb-0">21/2/2023</li>
-          <li class="list-group-item text-muted mb-0">Rolls Royce</li>
+          <li class="list-group-item text-muted mb-0">{{i.time}}</li>
+          <li class="list-group-item text-muted mb-0">{{i.date}}</li>
+          <li class="list-group-item text-muted mb-0">{{i.model}}</li>
+          <li class="list-group-item text-muted mb-0">{{i.brand}}</li>
+
         </ul>
+
         <div class="card-body">
         <div class="d-grid gap-2">
           <a href="#" class=" text-black">   <button type="button" name="" id="" class="btn btn-warning">Cancel
@@ -37,6 +43,8 @@
         </div>  
         </div>
       </div>
+      {% endfor %}
+
 </body>
 </html>
 </body>

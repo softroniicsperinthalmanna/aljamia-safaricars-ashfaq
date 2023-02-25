@@ -45,6 +45,9 @@
               <li class="nav-item">
                 <a class="nav-link "aria-current="page" href="{% url 'fb' %}">Feedback</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link "aria-current="page" href="{% url 'ad' %}"> Pleased Applicants</a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   options
@@ -90,17 +93,26 @@
    <!-- cars -->
    <div class="container">
     <div class="row">
-        <div class="col-3"> 
+      
+{% for a in acc %}
+        
+        
+        <div class="col-3 my-4"> 
           <div class="card text-center border border-3 border-danger" style="width:200px;height:auto;">
            <div class="card-body">
-            <img src="https://m.media-amazon.com/images/I/61IeD8s+FDL.jpg" alt="" class="card-image-top" style="width:100px; height:auto">
-            <h2 class="card-tittle">Gear  knob </h2>
-        <p class="card-text">xuv   <h4 class="text-danger">Rs250</h4></p>
+            <img src="{{a.image.url}}" alt="" class="card-image-top" style="width:100px; height:100px">
+            <h2 class="card-tittle text-capitalize">{{a.p_name}} </h2>
+           <h4 class="text-danger">Rs {{a.p_price}}</h4>
         <a name="butn" id="butn" class="btn btn-outline-danger" href="{%url 'product'%}" role="button">Buy now</a>
       </div>
   </div>
 </div>
-        <div class="col-3"> 
+<br>
+{% endfor %}
+    </div>
+   </div>
+
+        {% comment %} <div class="col-3"> 
           <div class="card text-center border border-3 border-danger" style="width:200px;height:auto;"> 
           <div class="card-body">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNScC7sH57GKYLHnhu6K092jsGtbrQb2SutslGArd2sCTXGIr76hdDFDqzjL_V7vSG9LQ&usqp=CAU" alt="" class="card-image-top" style="width:100px; height:auto">
@@ -299,7 +311,7 @@
                             <a name="butn" id="butn" class="btn btn-outline-danger" href="{%url 'product'%}" role="button">Buy now</a>
                         </div></div></div>
                         </div>
-                          </div>
+                          </div> {% endcomment %}
                           
                               <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center my-5">

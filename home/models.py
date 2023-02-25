@@ -138,6 +138,11 @@ class add_vehicle(models.Model):
      fuel=models.CharField(max_length=255,choices=FUEL, default='petrol')
      discription=models.CharField(max_length=255)
      image = models.ImageField( max_length = 100)
+     image1 = models.ImageField( max_length = 100,null=True)
+     image2 = models.ImageField( max_length = 100,null=True)
+     image3 = models.ImageField( max_length = 100,null=True)
+     image4 = models.ImageField( max_length = 100,null=True)
+
      parking_sensor = models.BooleanField( "parking_sensor",default=False)
      center_lock = models.BooleanField( "center_lock",default=False)
      Rear_camera = models.BooleanField( "Rear_camera",default=False)
@@ -151,6 +156,11 @@ class add_product(models.Model):
         discription=models.CharField(max_length=255)
         image = models.ImageField( max_length = 100)
 
+class dis_product(models.Model):
+        p_name=models.CharField(max_length=255)
+        p_price=models.IntegerField()
+        discription=models.CharField(max_length=255)
+        image = models.ImageField( max_length = 100)
 
         
 class l_cars(models.Model):

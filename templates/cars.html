@@ -89,6 +89,27 @@
        <!-- cars -->
        <div class="container m my-5">
         <div class="row">
+          
+    {% for c in car %}
+            
+            
+            <div class="col-3"> 
+              <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+               <div class="card-body">
+                <img src="{{c.image.url}}" alt="" class="card-image-top" style="width:auto; height:100px">
+                <h2 class="card-tittle text-uppercase">{{c.brand}} </h2>
+                 <p class="card-text text-uppercase">{{c.model}} 
+               <h4 class="text-marwan">Rs {{c.c_price }}</h4></p>
+               <a name="butn" id="butn" class="btn btn-outline-info" href="{%url 'car'%}" role="button">Know more</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %} 
+    
+          
+{% comment %}
+       <div class="container m my-5">
+        <div class="row">
             <div class="col-3"> 
               <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
                <div class="card-body">
@@ -132,18 +153,24 @@
            <!-- 2nd row -->
            <div class="container m my-5">
             <div class="row">
+              
+              {% for c in cars %}
+                
+                
                 <div class="col-3"> 
                   <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
                    <div class="card-body">
-                    <img src="https://imgd.aeplcdn.com/664x374/cw/ec/36129/MercedesBenz-GClass-Exterior-137816.jpg?v=20181910123857&wm=0&q=75" alt="" class="card-image-top" style="width:auto; height:100px">
-                    <h2 class="card-tittle text-uppercase">mercedes-benz </h2>
-                     <p class="card-text">G Wagon 
-                   <h4 class="text-marwan">Rs1,12,40,000</h4></p>
+                    <img src="{{c.image.url}}" alt="" class="card-image-top" style="width:auto; height:100px">
+                    <h2 class="card-tittle text-uppercase">{{c.brand}} </h2>
+                     <p class="card-text">{{c.model}} 
+                   <h4 class="text-marwan">Rs {{c.price}}</h4></p>
                    <a name="butn" id="butn" class="btn btn-outline-info" href="{%url 'car'%}" role="button">Know more</a>
             </div>
           </div>
         </div>
-        <div class="col-3"> 
+        {% endfor %}
+
+         <div class="col-3"> 
           <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
           <div class="card-body">
             <img src="https://freepngimg.com/thumb/car/31510-9-car-transparent-background.png" alt="" class="card-image-top" style="width:auto; height:100px">
@@ -255,7 +282,7 @@
                             </div>
                             </div>
                             </div>
-                            </div>
+                            </div> {% endcomment %}
                                     <br>
                                 
                               <nav aria-label="Page navigation example ">

@@ -17,11 +17,15 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
+# from jet_django.urls import jet_urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path(r'^jet_api/', include(jet_urls)),#jet
     path('',include('home.urls')),
-    # static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     
-]
+    path('jet/', include('jet.urls','jet')),#jet
+    path('jet/dashboard/',include('jet.dashboard.urls','jet-dashboard')),
+]+    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
