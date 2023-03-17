@@ -1,0 +1,109 @@
+.form
+{
+    margin-top: 55px;
+    padding: 50px 50px; 
+}
+.form-control
+{
+    padding: 10px 50px; 
+    margin-right: 50%;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Life+Savers&family=Pacifico&family=Passions+Conflict&display=swap');
+*
+{
+    padding: 0;
+    margin: 0;
+}
+.form
+{
+    display: flex;
+    grid-template-columns: repeat(3,4fr);
+    padding: 10px 10px;
+    grid-column-gap: 80px;
+    grid-row-gap: 70px;
+    margin-top: 30px;
+    /* margin-left: 60px;
+    margin-right: 60px; */
+    border-radius: 15px;
+
+
+
+}
+ h3{
+    color: rgb(0, 0, 0,0.5);
+    font-weight: 600;
+    font-family: ' cursive';
+    margin-top: 10px;
+} 
+ hr
+{
+    border-top: 3px solid rgb(103, 99, 99);
+    width: 100%;
+} 
+select
+{
+    padding: 10px 10px;
+    border-radius: 15px;
+}
+.form-1
+{
+    display: grid;
+    grid-template-columns: repeat(4,4fr);
+    padding: 10px 10px;
+    grid-column-gap: 80px;
+    grid-row-gap: 70px;
+    margin-top: 30px;
+    /* margin-left: 60px;
+    margin-right: 60px; */
+    border-radius: 15px;
+}
+button.btn
+{
+    padding: 8px 10px;
+    
+}
+#logo
+{
+    height: 200px;
+}
+#form
+{
+    padding: 10px 10px;
+    border-radius: 15px;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .bg-grey {
+    background-color: #eae8e8;
+    }
+    
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-grey {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+    
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-grey {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }

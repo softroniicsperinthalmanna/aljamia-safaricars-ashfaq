@@ -1,0 +1,543 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% load social_share %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari cars</title>
+    {% comment %} <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/st.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.js"></script>
+  
+     {% comment %} compiled and minfied css {% endcomment %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    {% comment %} compiled js {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <link rel="stylesheet" href="{% static '/css/st.css' %}">
+    <script src="{% static '/js/home.js' %}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</head>
+<body>
+     <!-- navbar -->
+     <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white fw-bold" href="#"><img id="logo" src="{% static '/images/logo.png' %}" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'car_accessories' %}">Accessories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'showcart' %}">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link "aria-current="page" href="{% url 'services' %}">service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link "aria-current="page" href="{% url 'user_address' %}">Your Address</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="{% url 'garages' %}" >Garages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link "aria-current="page" href="{% url 'feedbacks' %}">Feedback</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  options
+                </a>
+                <ul class="dropdown-menu">
+                  {% comment %} <li><a class="dropdown-item" href="{% url 'order_details' %}">My orders</a></li> {% endcomment %}
+                  <li><a class="dropdown-item" href="{% url 'service_details' %}">Service details</a></li>
+                  <li><a class="dropdown-item" href="{% url 'test_drive_details' %}">test drive details</a></li>
+                  
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+           <a href="{% url 'login' %}" >  <button class="btn btn-outline-danger mx-2" type="button">Login</button></a>
+             <a href="{% url 'sell_car' %}"> <button class="btn btn-outline-danger" type="button">Sell your car</button><br> </a>
+            </form>
+          </div>
+        </div>
+      </nav>
+           <!-- slideshow -->
+
+
+           <div class="slider">
+            <div class="load">    
+            </div>
+            <div class="content">
+                <div class="pricipal">
+                    <h1>welcome</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, illum!</p>
+                </div>
+            </div>
+        </div>
+                      <!-- second navbar-->
+                      <div class="button" onload="openPage('Home', this, 'white')"></div>
+                      <button class="tablink" onclick="openPage('Home', this, 'white')" id="defaultOpen"> Luxury cars  </button>
+                      <button class="tablink" onclick="openPage('News', this, 'white')" >  Luxury Bikes  </button>
+                      <button class="tablink" onclick="openPage('Contact', this, 'white')">Electric vehicle</button>
+                      <button class="tablink" onclick="openPage('About', this, 'white')">hybrid</button></div>
+                      <!-- lcars -->
+<div id="Home" class="tabcontent">
+  <div class="container m my-5">
+    <div class="row">
+      {% for car in laxury_cars %}
+        <div class="col-3"> 
+          <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+           <div class="card-body">
+            <img src="{{ car.l_image.url }}" alt="" class="card-image-top" style="width:150px; height:100px">
+            {% comment %} <img src="https://imgd.aeplcdn.com/664x374/cw/ec/36129/MercedesBenz-GClass-Exterior-137816.jpg?v=20181910123857&wm=0&q=75" alt="" class="card-image-top" style="width:auto; height:100px"> {% endcomment %}
+            <h2 class="card-tittle"> {{ car.l_brand}}</h2>
+             <p class="card-text">{{ car.l_model }}
+           <h4 class="text-info">Rs:- {{ car.l_price }}</h4></p>
+           {% comment %} {% for item in items %} {% endcomment %}
+              <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' car.id  %}" role="button">Know more</a>
+              {% comment %} <a href="{% url 'car_preview' prod.id  %}" class="btn"> {% endcomment %}
+             {% comment %} <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a> {% endcomment %}
+           
+          </div>
+        </div>
+          </div>
+      {% endfor %}   
+        </div>
+      </div>  
+
+{% comment %} <div class="col-3"> 
+  <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+  <div class="card-body">
+    <img src="https://freepngimg.com/thumb/car/31510-9-car-transparent-background.png" alt="" class="card-image-top" style="width:auto; height:100px">
+    <h2 class="card-tittle">mercedes-benz  </h2>
+<p class="card-text">E class 
+   <h4 class="text-info">Rs13,40,000</h4></p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a><br><br>
+</div>
+</div>
+</div>
+<div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+    <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg?q=75&wm=1 alt=" class="card-image-top" style="width:auto; height:100px">
+    <h2 class="card-tittle">mercedes-benz  </h2>
+<p class="card-text">S-class 
+   <h4 class="text-info">Rs14,40,000</h4></p>
+    <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+  </div></div></div>
+<div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+    <img src="https://d28wu8o6itv89t.cloudfront.net/images/MercedesBenzCClasspng-1590124057963.png" alt="" class="card-image-top" style="width:auto; height:100px">
+    <h2 class="card-tittle">mercedes-benz  </h2>
+<p class="card-text">A-class  
+  <h4 class="text-info">Rs15,40,000</h4></p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+</div>
+</div>
+</div>
+</div>
+</div> {% endcomment %}
+
+                                              <!-- second row -->
+{% comment %} <div class="container">
+<div class="row ">
+<div class="col-3 my-5"> 
+  <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+   <div class="card-body">
+    <img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/BMW/BMW-X1-2012-2015/1372/front-left-side-47.jpg?tr=w-456" alt="" class="card-image-top" style="width:auto; height:100px">
+    <h2 class="card-tittle">BMW </h2>
+<p class="card-text">X1 
+   <h4 class="text-info">Rs22,40,000</h4></p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+</div>
+</div>
+</div>
+<div class="col-3 my-5 "> 
+  <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+  <div class="card-body">
+    <img src="https://www.ccarprice.com/products/BMW_X2_xDrive28i_2022.jpg" alt="" class="card-image-top" style="width:auto; height:100px">
+    <h2 class="card-tittle">BMW </h2>
+<p class="card-text">X2
+   <h4 class="text-info">Rs23,40,000</h4></p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+</div></div></div>
+<div class="col-3 my-5"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+    <img src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/X5ModelImage.jpg&w=373&h=245&q=75&c=1" class="card-image-top" style="width:auto; height:100px">
+    <h2 class="card-tittle">BMW </h2>
+<p class="card-text">X5 
+   <h4 class="text-info">Rs34,40,000</h4></p>
+    <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+  </div></div></div>
+<div class="col-3 my-5"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+    <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/41375/x6-exterior-right-front-three-quarter-2.jpeg" alt="" class="card-image-top" style="width:auto; height:100px">
+    <h2 class="card-tittle">BMW </h2>
+<p class="card-text">X6  
+  <h4 class="text-info">Rs55,40,000</h4></p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+</div></div></div>
+</div>
+<a href="#"><div class="btn btn-outline-link my-3 ms-2  btn-xl-end" >See more</div></a>
+
+</div>
+
+</div> {% endcomment %}
+
+   </div>
+                                                                   <!-- bikes row -->
+
+                                     
+
+<div id="News" class="tabcontent">
+  <div class="container  my-5">
+    <div class="row ">
+    {% for bikes in laxury_bikes %}
+        <div class="col-3 "> 
+          <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+           <div class="card-body">
+            {% comment %} <img src="https://imgd.aeplcdn.com/393x221/n/cw/ec/125583/nightster-right-side-view.jpeg?isig=0&q=75" alt="" class="card-image-top" style="width:auto; height:100px"> {% endcomment %}
+            <img src="{{ bikes.b_image.url }}" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle"{{bikes.b_brand}}  </h2>
+        <p class="card-text">    {{ bikes.b_model}}  <h4 class="text-info"> Rs:-  {{bikes.b_price}}          </h4></p>
+        {% comment %} {% for item in items %} 
+          <li>
+             <a href="/items/{{bikes.id}}">{{ bikes.b_model }}</a>
+          </li>
+        {% endfor %}  {% endcomment %}
+          <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'bike_preview' bikes.id%}" role="button">Know more</a> 
+        </div>
+       </div>
+       </div>
+    {% endfor %}
+      </div>
+    </div>
+  </div>
+        {% comment %} <div class="col-3"> 
+          <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+          <div class="card-body">
+            <img src="https://imgd.aeplcdn.com/310x174/n/cw/ec/1/versions/royalenfield-interceptor-standard---bs-vi1671525693403.jpg?q=75" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle"> R Enfield      </h2>
+        <p class="card-text"> Interceptor  650
+           <h4 class="text-info"> 6,50,000      </h4></p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+    </div></div></div>
+        <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+            <img src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/Royal-Enfield-Continental-GT-650-130120211556.png&w=386&h=256&q=90&c=1" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle">R Enfield     </h2>
+        <p class="card-text"> Continental GT  650 
+           <h4 class="text-info"> 7,00,000    </h4></p>
+           <a  class="btn btn-outline-info" href="{% url 'car_preview' %}"> Know more      </a>
+          </div></div></div>
+        <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+            <img src="https://images.triumphmotorcycles.co.uk/media-library/images/motorcycles/rocket%203/my23/rocket%203%20r/sapphire%20black/rocket-3-r_my23_sapphire-black_rhs_629px.png" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle"> Triumph  </h2>
+        <p class="card-text"> ROCKET  3
+
+          <h4 class="text-info">20,00,000</h4></p>
+     <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+        </div></div></div>
+    </div>
+</div>
+                                                      <!--second row -->
+                                                      
+                          <div class="container mb-5 pb-5">
+    <div class="row">
+        <div class="col-3  "> 
+          <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+           <div class="card-body">
+            <img src="https://imgd.aeplcdn.com/393x221/bw/models/suzuki-hayabusa-standard20210426152114.jpg?q=75" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle">Suzuki   </h2>
+        <p class="card-text">  Hayabusa      <h4 class="text-info">  8,00,000          </h4></p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+    </div>
+  </div>
+</div>
+        <div class="col-3"> 
+          <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+          <div class="card-body">
+            <img src="https://imgd.aeplcdn.com/393x221/bw/models/ducati-diavel.jpg?20190103151915&q=75" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle"> Ducati      </h2>
+          
+        <p class="card-text"> Diavel <h4 class="text-info">  16,00,000       </h4> </p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+    </div></div></div>
+        <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+            <img src="https://www.indianmotorcycle.in/fileadmin/templates/model_23/swap/intl/chief-dark-horse/chief-dh-black-smoke.jpg" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle"> I C      </h2>
+        <p class="card-text"> Chief-dark-horse
+           <h4 class="text-info">  20,00,000     </h4></p>
+           <a class="btn btn-outline-info" href="{% url 'car_preview' %}">  Know more     </a>
+          </div></div></div>
+        <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+            <img src="https://imgd.aeplcdn.com/393x221/bw/models/harley-davidson-heritage-softail-classic-standard-68.jpg?20190103151915&q=75" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle"> H D   </h2>
+        <p class="card-text"> Heritage Classic 
+          <h4 class="text-info">17,00,000</h4></p>
+     <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+        </div></div></div>
+    </div>
+</div>
+</div>
+</div> {% endcomment %}
+                          <!-- electric -->
+
+{% comment %} <div id="Contact" class="tabcontent">
+  <div class="container my-5">
+    <div class="row">
+        <div class="col-3"> 
+          <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+           <div class="card-body">
+            <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/42611/tata-nexon-ev-right-front-three-quarter6.jpeg?q=75" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle">  TATA </h2>
+        <p class="card-text">    Nexon    <h4 class="text-info">    8,00,000        </h4></p>
+   <a name="butn" id="butn" class="btn btn-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+    </div>
+  </div>
+</div>
+        <div class="col-3"> 
+          <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+          <div class="card-body">
+            <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/37138/model-3-exterior-right-front-three-quarter.jpeg?isig=0" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle">  Tesla     </h2>
+        <p class="card-text"> Model 3
+           <h4 class="text-info">    25,00,000    </h4></p>
+   <a name="butn" id="butn" class="btn btn-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+    </div></div></div>
+        <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+            <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/44579/eqc-exterior-right-front-three-quarter.jpeg" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle"> Mercedes      </h2>
+        <p class="card-text"> EV3
+           <h4 class="text-info">  75,00,000     </h4></p>
+           <a class="btn btn-outline-info" href="{% url 'car_preview' %}">     Know more    </a>
+          </div></div></div>
+        <div class="col-3"> <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> <div class="card-body">
+            <img src="https://cars.usnews.com/pics/size/390x290/images/Auto/izmo/i159614878/2022_tesla_model_y_angularfront.jpg" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle"> Tesla  </h2>
+        <p class="card-text">  Model Y
+          <h4 class="text-info">35,00,000</h4></p>
+     <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+        </div></div></div>
+    </div>
+</div>
+</div>                                                    <!-- second row -->
+      
+<div id="About" class="tabcontent">
+  <div class="container my-5">
+    <div class="row">
+        <div class="col-3"> 
+          <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
+           <div class="card-body">
+            <img src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/CamryModelImage.jpg&w=872&h=578&q=75&c=1" alt="" class="card-image-top" style="width:auto; height:100px">
+            <h2 class="card-tittle">  Toyota </h2>
+        <p class="card-text">    CAMRY    <h4 class="text-info">    48,00,000        </h4></p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+    </div>
+  </div>
+</div><div class="col-3"> 
+  <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;"> 
+  <div class="card-body">
+    <img src="https://nexaprod3.azureedge.net/-/media/feature/nexawebsitecarbrand/the-new-ciaz/hi5-_car/baleno590x352.webp?modified=20220222172045" alt="" class="card-image-top" style="width:auto; height:100px">
+    <h2 class="card-tittle">  Suzuki     </h2>
+<p class="card-text"> Belano 
+   <h4 class="text-info">    7,00,000    </h4></p>
+   <a name="butn" id="butn" class="btn btn-outline-info" href="{% url 'car_preview' %}" role="button">Know more</a>
+  </div></div></div></div>
+
+
+                      
+        
+                        </div>
+                      </div>
+                      
+                      
+                      <a name="" id="" class="btn btn-link float-end mt-5" href="{% url 'seemore' %}" role="button">see more</a>
+                       {% endcomment %}
+                     <!-- Accessories -->
+                     {% comment %} <div class="container my-2">
+                      <div class="row"> {% endcomment %}
+                        
+                        <div class="acc text-muted fs-3 mt-2 mx-3 ">Accessories</div>
+                        <div class="row">
+                          {% for prod in Accessories %}
+                                        {% comment %} <div class="col-3"> 
+                                          <div class="card text-center border border-3 border-danger" style="width:200px;height:auto;">
+                                          <div class="card-body">
+                                            <img src="{{ prod.image.url }}" alt="" class="card-image-top" style="width:150px; height:auto">
+                                            <h2 class="card-tittle">{{ prod.p_name}}</h2>
+                                        <p class="card-text">{{ prod.discription }}  <h4 class="text-info">Rs/- {{ prod.p_price }}</h4></p>
+                                      <a name="butn" id="butn" class="btn btn-outline-danger" href="{% url 'user_address' %}" role="button">Buy now</a>
+                                    </div>
+                                 </div>
+                              </div> {% endcomment %}
+                               <div class="col-3" >
+                                <div class="card mb-2 text-center border border-3 border-danger " >
+                                    
+                                    <div class="card-body" >
+                                      <img class="card-img-top" src="{{ prod.image.url }}" style='width:250px;'>
+                                        <h5 class="card-title">{{ prod.p_name}}</h5>
+                                        <p class="card-text">{{ prod.discription }}</p>
+                                        <a href="{% url 'product-detail' prod.id  %}" class="btn btn-primary">Click to preview </a>
+                                        {% comment %} <form action="/" method="POST">
+                                          {% csrf_token %}
+                                          <input hidden type="text" name="prod" value="{{ prod.id }}"> {% endcomment %}
+                                           <!-- <a href="{% url 'user_address' %}" type="submit"
+                                           class="btn btn-primary">
+                                           Buy now
+                                          </a>  -->
+                                         
+                                          {% comment %} <form action="/add-to-cart" class="d-inline"> 
+                                            <input type="hidden" name="prod_id" value= {{prod.id}}/>
+                                            <button type="submit" class=" btn btn-primary shadow  px-5  py-2 "> Add to cart </button>
+                                          </form> 
+                                          <a href="{% url 'showcart' %}" type="submit"
+                                           class="btn btn-primary">
+                                           Buy now
+                                          </a>
+                                             {% endcomment %}
+                                          {% comment %} <input type="submit" class="float-right btn btn-light border btn-sm" value="Add To Cart">
+                                        </form> {% endcomment %}
+                                    </div>
+                                </div>
+                              </div>
+                          {% endfor %}   
+                        </div>
+                            {% comment %} </div>
+                          </div>
+                        {% endcomment %}
+                  
+                              {% comment %} <div class="col-3"> 
+                                <div class="card text-center border border-3 border-danger" style="width:200px;height:auto;">
+                                <div class="card-body">
+                                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb-bWr4BqiceYVkh7TpiYzN5XAiU0fscIzEg&usqp=CAU" alt="" class="card-image-top" style="width:100px; height:auto">
+                                  <h2 class="card-tittle">Sony </h2>
+                              <p class="card-text">Sterio  <h4 class="text-info">5000</h4></p>
+                            <a name="butn" id="butn" class="btn btn-outline-danger" href="{% url 'user_address' %}" role="button">Buy now</a>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="col-3"> 
+                      <div class="card text-center border border-3 border-danger" style="width:200px;height:auto;">
+                      <div class="card-body">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb-bWr4BqiceYVkh7TpiYzN5XAiU0fscIzEg&usqp=CAU" alt="" class="card-image-top" style="width:100px; height:auto">
+                        <h2 class="card-tittle">Sony </h2>
+                    <p class="card-text">Sterio  <h4 class="text-info">5000</h4></p>
+                  <a name="butn" id="butn" class="btn btn-outline-danger" href="{% url 'user_address' %}" role="button">Buy now</a>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="col-3"> 
+                    <div class="card text-center border border-3 border-danger" style="width:200px;height:auto;">
+                    <div class="card-body">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb-bWr4BqiceYVkh7TpiYzN5XAiU0fscIzEg&usqp=CAU" alt="" class="card-image-top" style="width:100px; height:auto">
+                      <h2 class="card-tittle">Sony </h2>
+                  <p class="card-text">Sterio  <h4 class="text-info">5,000</h4></p>
+                  <a name="butn" id="butn" class="btn btn-outline-danger" href="{% url 'user_address' %}" role="button">Buy now</a>
+                  </div>
+                  </div>
+                  </div> {% endcomment %}
+                  <a href="{% url 'car_accessories' %}" class="text text-end">see more</a>
+                  
+                          
+<div class="container-fluid "><h4 class="aboutus">About US</h4></div>
+<hr>
+
+       <footer class="footer ">
+         <div class="container">
+              <div class="row">
+                   <div class="col-sm-2">
+                        <div class="footer_logo">
+                             <img  class="container-sm" src="{% static '/images/logo.png' %}" style="height: 150px; width:auto;"> 
+                        </div>
+                    
+                   </div>
+                   <div class="col-sm-3">
+                        <h4>Meet us</h4>
+                        <p>
+                             Lorem., Lorem, ipsum.,
+                             Lorem, ipsum dolor.
+                             000000
+                        </p>
+                        <p>
+                             NH-66, Lorem, ipsum., 
+                             Lorem., Lorem, ipsum.,
+                             Lorem, ipsum dolor.
+                             000000
+                             673014
+                        </p>
+                        <p>
+                         Lorem., Lorem, ipsum.,
+                         Lorem, ipsum dolor.
+                         000000
+                             
+                        </p>
+                   </div>
+                   <div class="col-sm-2">
+                        <h4>Call us</h4>
+                        <p>(+91) 123654789
+                             <!-- (+91) 85930 19090 <br> -->
+                        </p>
+                        <h4>Write to us</h4>
+                        {% comment %} <a href="#">Email</a> {% endcomment %}
+                        {% send_email object.title  object_or_url "<i class='bi bi-envelope-at-fill'></i>" %}
+                   </div>
+               
+                   <div class="col-sm-3 ">
+                        <div class="top_nav">
+                             <h4>Tell about us</h4>
+                             
+                             {% comment %} <div class="socia_icons">
+                                  <a class="social" href="#" target="_blank">
+                                       <i class="bi bi-facebook fa-2x">
+                                       </i>
+                                  </a>
+                                  <a class="social" href="#" target="_blank">
+                                       <i class="bi bi-twitter fa-2x">
+                                       </i>
+                                  </a> 
+                                  <a class="social" href="#" target="_blank">
+                                       <i class="bi bi-instagram fa-2x">
+                                       </i>
+                                  </a>
+                                  <a class="social" href="#" target="_blank">
+                                       <i class="fa fa-whatsapp fa-2x">
+                                       </i>
+                                  </a> 
+                                  <a class="social" href="#" target="_blank">
+                                       <i class="bi bi-youtube fa-2x">
+                                       </i>
+                                  </a>
+                             </div> {% endcomment %}
+                             
+                             
+                             
+                             {% post_to_facebook '<object_or_url>' '<i class="bi bi-facebook "></i>' %}
+                             {% comment %} {% post_to_twitter '<text_to_post> <object_or_url>'  '<i class="bi bi-twitter fa-2x"></i>' %} {% endcomment %}
+                             {% comment %} {% post_to_whatsapp '<object_or_url> <link_text> <link_class>' '<i class="fa fa-whatsapp fa-2x"></i>' %}  {% endcomment %}
+                             {% comment %} {% post_to_instagram object_or_url '<i class="bi bi-instagram fa-2x"></i>' %} {% endcomment %}
+                             {% comment %} {% post_to_youtube object_or_url '<i class="bi bi-youtube fa-2x"></i>' %}   {% endcomment %}
+                             {% post_to_whatsapp object_or_url "<i class='bi bi-whatsapp'></i>" %}
+                             {% post_to_twitter  object_or_url '<i class="bi bi-twitter"></i>' %}
+                             
+                            
+                         
+                        </div>
+                   </div>    
+              </div>
+         </div>
+    </footer>
+
+                   
+
+
+
+</body>
+</html>

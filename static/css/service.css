@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Life+Savers&family=Pacifico&family=Passions+Conflict&display=swap');
+*
+{
+    padding: 0;
+    margin: 0;
+}
+.form
+{
+    display: grid;
+    grid-template-columns: repeat(3,4fr);
+    padding: 10px 10px;
+    grid-column-gap: 80px;
+    grid-row-gap: 70px;
+    margin-top: 30px;
+    /* margin-left: 60px;
+    margin-right: 60px; */
+    border-radius: 15px;
+
+
+
+}
+ h3{
+    color: rgb(0, 0, 0,0.5);
+    font-weight: 600;
+    font-family: ' cursive';
+    margin-top: 10px;
+} 
+ hr
+{
+    border-top: 3px solid rgb(103, 99, 99);
+    width: 100%;
+} 
+select
+{
+    padding: 10px 10px;
+    border-radius: 15px;
+}
+.form-1
+{
+    display: grid;
+    grid-template-columns: repeat(4,4fr);
+    padding: 10px 10px;
+    grid-column-gap: 80px;
+    grid-row-gap: 70px;
+    margin-top: 30px;
+    /* margin-left: 60px;
+    margin-right: 60px; */
+    border-radius: 15px;
+}
+button.btn
+{
+    padding: 8px;
+}
+#logo
+{
+    height: 100px;
+}
+#form
+{
+    padding: 10px 10px;
+    border-radius: 15px;
+}
+/* --------slide show----------- */
+.load
+{
+    animation: slide 2s;
+    
+}
+.slider{
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    width: auto;
+    height: 400px;
+    animation: slide 70s infinite;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius:10px;
+}
+.content
+{
+    color: #fff;
+    width: auto;
+    height: 400px;
+    background-color: rgb(0, 0, 0,0.5);
+    border-radius:10px;
+
+
+}
+.pricipal{
+    left: 50%;
+    top:50%;
+    transform:translate(-50%,-50%) ;
+    position: absolute;
+    letter-spacing: 5px;
+    text-align: center;
+}
+.pricipal h1{
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+.pricipal p{
+    font-size: 20px;
+}
+@keyframes slide {
+    0%{
+        background-image: url("https://okcredit-blog-images-prod.storage.googleapis.com/2021/05/carrepair1.jpg");
+    }
+    10%{
+        background-image: url("https://okcredit-blog-images-prod.storage.googleapis.com/2021/05/carrepair1.jpg");
+    }
+       
+    20%{
+        background-image: url("https://okcredit-blog-images-prod.storage.googleapis.com/2021/05/carrepair1.jpg");
+
+    }
+    
+    0%{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpX4aHV95ehIUYZdSq1ZZZwYvf4wi04gY2Bg&usqp=CAU");
+    }
+   40%{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpX4aHV95ehIUYZdSq1ZZZwYvf4wi04gY2Bg&usqp=CAU");
+    }50%{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpX4aHV95ehIUYZdSq1ZZZwYvf4wi04gY2Bg&usqp=CAU");
+    }
+     60%{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpX4aHV95ehIUYZdSq1ZZZwYvf4wi04gY2Bg&usqp=CAU");
+    }
+    0%{
+        background-image: url("https://content3.jdmagicbox.com/comp/def_content/car-washing-services/shutterstock-752921533-car-washing-services-2-cm5j6.jpg");
+    }
+    80%{
+        background-image: url("https://content3.jdmagicbox.com/comp/def_content/car-washing-services/shutterstock-752921533-car-washing-services-2-cm5j6.jpg");
+
+    } 90%{
+        background-image: url("https://content3.jdmagicbox.com/comp/def_content/car-washing-services/shutterstock-752921533-car-washing-services-2-cm5j6.jpg");
+    }
+    100%{
+        background-image: url("https://content3.jdmagicbox.com/comp/def_content/car-washing-services/shutterstock-752921533-car-washing-services-2-cm5j6.jpg");
+
+    }
+
+}

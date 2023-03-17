@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row flex justify-content-between">
+      <div class="img2 col-lg-5 mt-5">
+        <img src="{{products.image.url}}" class="image col-xs-6 col-sm-12 col-lg-12 mt-3 text-sm-center w-100 h-75" alt="">
+      </div>
+      <div class="productdetail col-lg-5" >
+         <h1 style="font-family:Georgia; font-size:50px;" >{{products.p_name}}</h1>
+         <h5>Rs.{{products.p_price}}/-</h5>
+         {% comment %} <small class="text-decoration-line-through text-muted fs-5"><del> Rs. {{ products.selling_price }}/-</small></del> {% endcomment %}
+         <br><br><h4> Product Features </h4>
+         <ul class="fs-5" style="font-family:Rajdhani;">
+            <li>{{products.discription}}</li>
+         </ul>
+         <form action="{% url 'add-to-cart' products.id %}" class="d-inline"> 
+            {% comment %} <input type="hidden" name="prod_id" value= {{products.id}}/> {% endcomment %}
+            <input type="hidden" name="pk" value= {{products.id}}/>
+            <button type="submit" class=" btn btn-primary shadow  px-5  py-2 "> Add to cart </button>
+          </form> 
+          <a href="{% url 'showcart' %}" type="submit"
+           class="btn btn-primary">
+           Buy now
+          </a>
+         {% comment %} <div class="buttons row flex" style="font-family: Rajdhani;">
+           <button type="submit" class="d-grid gap-2 btn1 btn btn-danger p-1 m-1 btn-lg text-decoration-none text-white">Add to cart </button>
+           <div class="btn btn-dark p-1 m-1 btn-lg"><a href="#" class="text-decoration-none text-white">Buy Now</a></div>
+         </div>   {% endcomment %}
+      </div>     
+    </div>
+ </div>   

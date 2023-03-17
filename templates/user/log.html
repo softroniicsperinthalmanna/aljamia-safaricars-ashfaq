@@ -1,0 +1,125 @@
+{% load static %}
+{% load socialaccount  %}
+{% providers_media_js %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static '/css/log.css' %}">
+    {% comment %} <link rel="stylesheet" href="css/bootstrap.css"> {% endcomment %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script> {% endcomment %}
+    {% comment %} compiled and minfied css {% endcomment %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    {% comment %} compiled js {% endcomment %}
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static '/js/log.js' %}"></script>
+
+
+</head>
+<body>
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-banger text-black" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center bg-light mb-2" style="border-radius: 1rem;">
+      
+                  <div class="mb-md-0 mt-md-0 pb-5 bg-light">
+      
+                    <h2 class="fw-bold mb-2 text-uppercase"><img src="{% static '/images/logo.png' %}"></h2>
+                    <p class="text-black-50 mb-5">Please enter your login id and password!</p>
+{% comment %}       
+                    <div class="form-outline form-muted mb-1 text-black">
+                      <input type="email" id="typeEmailX" class="form-control form-control-lg"  placeholder="Email"/>
+                    </div>
+      
+                    <div class="form-outline form-muted mb-1   text-black">
+                      <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Password" />
+                    </div>
+       {% endcomment %}
+                    <form action="" method="POST">
+                       {% csrf_token %}
+                       {% for field in form %}
+                          <p>{{ field.label }}: <br> {{ field }}</p> <small class="text-danger">{{fm.errors|striptags}}</small> <br>
+                       {% endfor %}
+                       <button class="btn btn-outline-danger  px-3 " type="submit">Login</button>
+                       {% if form.non_field_errors %}
+                           {% for error in form.non_field_errors %}
+                               <p class="alert alert-danger my-3">{{error}}</p>
+                           {% endfor %}
+                       {% endif %}  
+                       {% if messages %}
+                          {% for msg  in messages %}
+                             <div class="alert alert-{{msg.tags}}" role="alert">
+                                {{msg}}
+                             </div>
+                          {% endfor %}
+                       {% endif %} 
+
+                     </form>
+                     <br>
+                    <p class="small mb-1 pb-lg-2 text-black"><a class="text-black-50" href="{% url 'reset_password' %}">Forgot password?</a></p>
+      
+                    {% comment %} <div class="btn btn-outline-danger btn-lg px-5" type="submit text-db">Login</div> {% endcomment %}
+      
+
+      
+                  </div>
+                  {% comment %} <div class="media align-items-center">
+                    <div class="media-left">
+                    <div class="icon-circle fs-3 my-3 ">
+                    <a href="http://" ><i class="bi bi-facebook text-primary"></i></a> 
+                    <a href="http://" ><i class="bi bi-twitter text-info"></i></a> 
+                    <a href="http://" ><i class="bi bi-google text-danger"></i></a> 
+
+
+                      </div>
+                    </div> {% endcomment %}
+                   
+                  </div>
+                  <div class="container" style="text-align: center; padding-top: 10%;">
+                    {% comment %} <h1>Django Social Login</h1>
+                  
+                    <br /><br /> {% endcomment %}
+                  
+                   {% if user.is_authenticated %} 
+                      <h3>Welcome {{ user.username }} !!!</h3> 
+                      <br /><br />
+                      <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                  {% else %} 
+                      
+                      <!-- GitHub button starts here -->
+                      <a href="{% provider_login_url 'github' %}" class="btn btn-secondary"> <i class="fa fa-github fa-fw"></i><span>Login with GitHub</span></a><br><br>
+                      {% comment %} {% provider_login_url "facebook" method="oauth2" %} {% endcomment %}
+                      <!-- GitHub button ends here -->
+                      {% comment %} {% load providers_media_js %}   {% endcomment %}
+                      <a href="{% provider_login_url 'facebook' method='js_sdk' %}" class="btn btn-secondary"> <i class="bi bi-facebook"></i><span>Login with Facebook</span></a><br><br>
+                      <a href="{% provider_login_url 'google' %}" class="btn btn-secondary"> <i class="bi bi-google"></i><span>Login with Google</span></a> <br><br>
+                  {% endif %} 
+                  </div>
+                 
+                 <br><br>
+                  <div class="text-black">
+                    <p class="mb-0 text-center">Don't have an account? <a href="{% url 'sign_up' %}" class=" fw-bold">Sign Up</a>
+                    </p>
+                  </div>
+                  <br><br>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+</body>
+</html>
