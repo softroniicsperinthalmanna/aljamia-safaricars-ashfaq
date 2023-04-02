@@ -54,9 +54,9 @@
                 options
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">My order</a></li>
-                <li><a class="dropdown-item" href="#">Service booking</a></li>
-                <li><a class="dropdown-item" href="">test drive details</a></li>
+                <li><a class="dropdown-item" href="{%url 'order_details'%}">My order</a></li>
+                <li><a class="dropdown-item" href="{%url 'servicedt'%}">Service booking</a></li>
+                <li><a class="dropdown-item" href="{%url 'testdrivedetails'%}">test drive details</a></li>
 
                 
               </ul>
@@ -71,20 +71,32 @@
       </div>
     </nav>
        <!-- searchbar -->
+       <form action="">
        <div class="input-group">
-        <input type="search" class="form-control rounded m ms-5" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        <button type="button" class="btn btn-outline-primary me-5">search</button>
+        <input type="search" class="form-control rounded m ms-5" placeholder="Search Brand" name="q" aria-label="Search" aria-describedby="search-addon" />
+        {% comment %} <input type="search" class="form-control form-input" name="q" placeholder="Search anything..."> {% endcomment %}
+
+        <button type="submit" class="btn btn-outline-primary me-5">search</button>
       </div>
+    </form>
              <!-- Dropdown -->
-      
-        <select name="dropdown" id="" class=" btn btn-outline-info ms-5 my-5">
+      <form action="">
+        <select name="dropdown" id="" class=" btn btn-outline-info ms-5 my-5" >
             <option value="hybrid" >Hybrid</option>
             <option value="Ev">EV</option>
-            <option value="Pertol">Pertol</option>
+            <option value="Petrol">Petrol</option>
             <option value="Deisel">Deisel</option>
 
         </select>  
-  
+        <button type="submit" class="btn btn-outline-info  my-5">filter</button>
+        <select name="transmisson" id="" class=" btn btn-outline-info ms-5 my-5" >
+          <option value="Manual" >Manual</option>
+          <option value="Automatic">Automatic</option>
+
+      </select>  
+      <button type="submit" class="btn btn-outline-info  my-5">filter</button>
+      </form>
+    
                      
        <!-- cars -->
        <div class="container m my-5">
@@ -97,10 +109,10 @@
               <div class="card text-center border border-3 border-muted" style="width:200px;height:auto;">
                <div class="card-body">
                 <img src="{{c.image.url}}" alt="" class="card-image-top" style="width:auto; height:100px">
-                <h2 class="card-tittle text-uppercase">{{c.brand}} </h2>
+                <h2 class="card-tittle text-uppercase ">{{c.brand}} </h2>
                  <p class="card-text text-uppercase">{{c.model}} 
                <h4 class="text-marwan">Rs {{c.c_price }}</h4></p>
-               <a name="butn" id="butn" class="btn btn-outline-info" href="{%url 'car'%}" role="button">Know more</a>
+               <a name="butn" id="butn" class="btn btn-outline-info" href="{%url 'car2' c.id%}" role="button">Know more</a>
         </div>
       </div>
     </div>
@@ -295,79 +307,74 @@
                                 </ul>
                               </nav>
                               
-                                <div class="container2 mt-5"><h4 class="aboutus">About US</h4></div>
-                                <hr>
-
-                                <footer class="footer">
-                                  <div class="container">
-                                       <div class="row">
-                                            <div class="col-sm-2">
-                                                 <div class="footer_logo">
-                                                      <img  class="container-sm" src="{% static 'images/logo.png' %}" style="height: 150px; width:auto;"> 
-                                                 </div>
-                                             
-                                            </div>
-                                            <div class="col-sm-3">
-                                                 <h4>Meet us</h4>
-                                                 <p>
-                                                      Lorem., Lorem, ipsum.,
-                                                      Lorem, ipsum dolor.
-                                                      000000
-                                                 </p>
-                                                 <p>
-                                                      NH-66, Lorem, ipsum., 
-                                                      Lorem., Lorem, ipsum.,
-                                                      Lorem, ipsum dolor.
-                                                      000000
-                                                      673014
-                                                 </p>
-                                                 <p>
-                                                  Lorem., Lorem, ipsum.,
-                                                  Lorem, ipsum dolor.
-                                                  000000
-                                                      
-                                                 </p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                 <h4>Call us</h4>
-                                                 <p>(+91) 123654789
-                                                      <!-- (+91) 85930 19090 <br> -->
-                                                 </p>
-                                                 <h4>Write to us</h4>
-                                                 <a href="#">Email</a>
-                                            </div>
-                                        
-                                            <div class="col-sm-3 ">
-                                                 <div class="top_nav">
-                                                      <h4>Connect with us</h4>
-                                                      <div class="socia_icons">
-                                                           <a class="social" href="#" target="_blank">
-                                                                <i class="bi bi-facebook fa-2x">
-                                                                </i>
-                                                           </a>
-                                                           <a class="social" href="#" target="_blank">
-                                                                <i class="bi bi-twitter fa-2x">
-                                                                </i>
-                                                           </a> 
-                                                           <a class="social" href="#" target="_blank">
-                                                                <i class="bi bi-instagram fa-2x">
-                                                                </i>
-                                                           </a>
-                                                           <a class="social" href="#" target="_blank">
-                                                                <i class="fa fa-whatsapp fa-2x">
-                                                                </i>
-                                                           </a> 
-                                                           <a class="social" href="#" target="_blank">
-                                                                <i class="bi bi-youtube fa-2x">
-                                                                </i>
-                                                           </a>
+                              <div class="container-fluid"><h4 class="aboutus">About US</h4></div>
+                              <hr class="border border-3">
+                              
+           
+                                     <footer class="footer">
+                                       <div class="container">
+                                            <div class="row">
+                                                 <div class="col-sm-2">
+                                                      <div class="footer_logo">
+                                                           <img  class="container-sm" src="{% static 'images/logo.png' %}" style="height: 150px; width:auto;"> 
                                                       </div>
                                                   
                                                  </div>
-                                            </div>    
+                                                 <div class="col-sm-3">
+                                                      <h4>Meet us</h4>
+                                                      <p>
+                                                           karuvarakundu,
+                                                           malappuram,
+                                                           kerala
+                                                      </p>
+                                                      <p>
+                                                           NH-66, 
+                                                           673014
+                                                      </p>
+                                                     
+                                                 </div>
+                                                 <div class="col-sm-2">
+                                                      <h4>Call us</h4>
+                                                      <p>(+91) 123654789
+                                                          (+91) 85930 19090 <br>
+                                                      </p>
+                                                      <h4>Write to us</h4>
+                                                     .<div class="container">
+                                                       Gmail
+                                                      <a href="mailto:thanzeetnz83@gmailcom" class="text-danger "> safaricars@gmail.com</a>
+                                                     </div>
+                                                   </div>
+                                             
+                                                 <div class="col-sm-3 ">
+                                                      <div class="top_nav">
+                                                           <h4>Connect with us</h4>
+                                                           <div class="socia_icons">
+                                                            <a class="social" href="https://www.facebook.com/sonu.sana.927" target="_blank">
+                                                              <i class="bi bi-facebook fa-2x">
+    
+                                                              </i>
+                                                         </a>
+                                                      
+                                                         <a class="social text-danger" href="https://www.instagram.com/thansi_i/" target="_blank">
+                                                              <i class="bi bi-instagram fa-2x">
+                                                              </i>
+                                                         </a>
+                                                         <a class="social text-success" href="http://wa.me/9947977759" target="_blank">
+                                                              <i class="bi bi-whatsapp fa-2x">
+                                                              </i>
+                                                         </a> 
+                                                         <a class="social text-danger" href="https://www.youtube.com/@safaricarsbyanfal3218" target="_blank">
+                                                              <i class="bi bi-youtube fa-2x">
+                                                              </i>
+                                                         </a>
+                                                           </div>
+                                                       
+                                                      </div>
+                                                 </div>    
+                                            </div>
                                        </div>
-                                  </div>
-                             </footer>                            
+                                  </footer>
+                                      
                               
                             </body>
 </html>

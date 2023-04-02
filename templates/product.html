@@ -36,7 +36,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                <a class="nav-link " aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'acc' %}">Accessories</a>
@@ -58,9 +58,9 @@
                   options
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">My order</a></li>
-                  <li><a class="dropdown-item" href="#">Service booking</a></li>
-                  <li><a class="dropdown-item" href="#">test drive details</a></li>
+                    <li><a class="dropdown-item" href="{%url 'order_details'%}">My order</a></li>
+                    <li><a class="dropdown-item" href="{%url 'servicedt'%}">Service booking</a></li>
+                    <li><a class="dropdown-item" href="{%url 'testdrivedetails'%}">test drive details</a></li>
 
                   
                 </ul>
@@ -74,117 +74,96 @@
         </div>
       </nav>
       <!-- car -->
-    <div class="clearfix text-sm-start text-l-center  fs-6">
+      <div class="clearfix text-sm-start text-l-center  fs-6">
 
-        <img class="container rounded float-start 	border border-2 float-left w-50 h-25" src="https://c0.wallpaperflare.com/preview/968/318/514/alloy-alloy-rim-car-mag-wheels.jpg" alt="car">
-   <div class="details m mx-5 my-5 fs-6"> 
-        <h3 class="text-sm-start text-xl-center fw-bold fs-3 ms-5 text-m-5 text-sm-center">Alloy wheels</h3>
-        <div class="container text-start">13 inch Universal wheel cover, Fits on all cars having 13 Inch rim. It is designed for 13" stock steel wheels, and will not fit over alloy wheels..</div>
-        <div class="container text-start">Economical way to give a big visual upgrade to your vehicles' profile.</div>
-        <div class="container text-start">There are adjustments on the hub cap to adjust the tightness of fitment onto the steel wheel.</div>
-       <hr> 
-        <div class="container1 text-start fs-5">Brand	PRIGAN          </div>
-
-        <div class="container1 text-start fs-4">   Size	13 Inch</div>
-          <div class="container1 text-start fs-4">   Colour	Black</div>
-               <div class="container1 text-start fs-4">   Material	Polypropylene</div>
-                    <div class="container1 text-start fs-4">   Installation Type	Press Fitting</div>
-        <div class="container1 fs-2 text-start text-uppercase fw-bold">price: <span class="text-danger">-56%</span>  ₹1,458.</div>
-
+          <img class="container rounded float-start border border-2 float-cenetr w-25 h-25" src="{{ product.image.url }}" alt="car" style="margin-left: 300px;">
+     <div class="details m mx-5 my-5 fs-6"> 
+          <h3 class="container text-start fs-2 text-uppercase "><u>{{ product.p_name }}</u></h3>
+          <div class="container text-start fs-2 text-capitalize text-secondary">{{ product.discription }}</div>
+  
+       
+          <div class="container1 fs-2 text-start text-uppercase fw-bold text-danger">price:{{ product.p_price }}.</div>
+  
+        </div>
       </div>
-    </div>
-    <div class="button">
-     <a name="butn" id="butn" class="btn btn-outline-danger " href="{%url 'adress'%}" role="button" style="margin-left: 75%;margin-bottom:100px;padding:20px 20px">Buy now</a>
-</div>
-              <!-- car-images -->
-              <div class=" m mt-2 p pe-0 h-25 w-100 d-flex  mx-5">
-               <a href=""> <img class=" border border-3 w-50 " src="https://i.pinimg.com/originals/c1/18/da/c118da274631e89b9913c3738ad24f10.jpg" alt="other"></a>
-               <a href=""> <img class=" border border-3 w-50 " src="https://i.pinimg.com/originals/c1/18/da/c118da274631e89b9913c3738ad24f10.jpg" alt="other"></a>
-               <a href=""> <img class=" border border-3 w-50 " src="https://i.pinimg.com/originals/c1/18/da/c118da274631e89b9913c3738ad24f10.jpg" alt="other"></a>
-               <a href=""> <img class=" border border-3 w-50 " src="https://i.pinimg.com/originals/c1/18/da/c118da274631e89b9913c3738ad24f10.jpg" alt="other"></a>
-               <a href=""> <img class=" border border-3 w-50 " src="https://i.pinimg.com/originals/c1/18/da/c118da274631e89b9913c3738ad24f10.jpg" alt="other"></a>
+      <div class="button">
+       <a name="butn" id="butn" class="btn btn-outline-danger " href="{%url 'adress'%}" role="button" style="margin-left: 75%;margin-bottom:100px;padding:20px 20px">Buy now</a>
+  </div>
 
-              </div>
-
-
-
-
+             
               <footer class="footer">
   
   
-    <div class="container2 mt-5"><h4 class="aboutus">About US</h4></div>
-    
-    <hr>
+               <div class="container-fluid"><h4 class="aboutus">About US</h4></div>
+               <hr class="border border-3">
+              
 
-      <div class="container-fluid">
-           <div class="row">
-                <div class="col-sm-2">
-                     <div class="footer_logo">
-                          <img  class="container-sm" src="{% static 'images/logo.png' %}" style="height: 150px; width:auto;"> 
-                     </div>
-                 
-                </div>
-                <div class="col-sm-3">
-                     <h4>Meet us</h4>
-                     <p>
-                          Lorem., Lorem, ipsum.,
-                          Lorem, ipsum dolor.
-                          000000
-                     </p>
-                     <p>
-                          NH-66, Lorem, ipsum., 
-                          Lorem., Lorem, ipsum.,
-                          Lorem, ipsum dolor.
-                          000000
-                          673014
-                     </p>
-                     <p>
-                      Lorem., Lorem, ipsum.,
-                      Lorem, ipsum dolor.
-                      000000
-                          
-                     </p>
-                </div>
-                <div class="col-sm-2">
-                     <h4>Call us</h4>
-                     <p>(+91) 123654789
-                          <!-- (+91) 85930 19090 <br> -->
-                     </p>
-                     <h4>Write to us</h4>
-                     <a href="#">Email</a>
-                </div>
-            
-                <div class="col-sm-3 ">
-                     <div class="top_nav">
-                          <h4>Connect with us</h4>
-                          <div class="socia_icons">
-                               <a class="social" href="#" target="_blank">
-                                    <i class="bi bi-facebook fa-2x">
-                                    </i>
-                               </a>
-                               <a class="social" href="#" target="_blank">
-                                    <i class="bi bi-twitter fa-2x">
-                                    </i>
-                               </a> 
-                               <a class="social" href="#" target="_blank">
-                                    <i class="bi bi-instagram fa-2x">
-                                    </i>
-                               </a>
-                               <a class="social" href="#" target="_blank">
-                                    <i class="fa fa-whatsapp fa-2x">
-                                    </i>
-                               </a> 
-                               <a class="social" href="#" target="_blank">
-                                    <i class="bi bi-youtube fa-2x">
-                                    </i>
-                               </a>
-                          </div>
-                      
-                     </div>
-                </div>    
-           </div>
-      </div>
- </footer>
+                      <footer class="footer">
+                        <div class="container">
+                             <div class="row">
+                                  <div class="col-sm-2">
+                                       <div class="footer_logo">
+                                            <img  class="container-sm" src="{% static 'images/logo.png' %}" style="height: 150px; width:auto;"> 
+                                       </div>
+                                   
+                                  </div>
+                                  <div class="col-sm-3">
+                                       <h4>Meet us</h4>
+                                       <p>
+                                            karuvarakundu,
+                                            malappuram,
+                                            kerala
+                                       </p>
+                                       <p>
+                                            NH-66, 
+                                            673014
+                                       </p>
+                                      
+                                  </div>
+                                  <div class="col-sm-2">
+                                       <h4>Call us</h4>
+                                       <p>(+91) 123654789
+                                           (+91) 85930 19090 <br>
+                                       </p>
+                                       <h4>Write to us</h4>
+                                      .<div class="container">
+                                        Gmail
+                                       <a href="mailto:thanzeetnz83@gmailcom" class="text-danger "> safaricars@gmail.com</a>
+                                      </div>
+                                    </div>
+                              
+                                  <div class="col-sm-3 ">
+                                       <div class="top_nav">
+                                            <h4>Connect with us</h4>
+                                            <div class="socia_icons">
+                                                 <a class="social" href="#" target="_blank">
+                                                      <i class="bi bi-facebook fa-2x">
+                                                      </i>
+                                                 </a>
+                                                 <a class="social text-info" href="#" target="_blank">
+                                                      <i class="bi bi-twitter fa-2x">
+                                                      </i>
+                                                 </a> 
+                                                 <a class="social text-danger" href="#" target="_blank">
+                                                      <i class="bi bi-instagram fa-2x">
+                                                      </i>
+                                                 </a>
+                                                 <a class="social text-success" href="#" target="_blank">
+                                                      <i class="bi bi-whatsapp fa-2x">
+                                                      </i>
+                                                 </a> 
+                                                 <a class="social text-danger" href="#" target="_blank">
+                                                      <i class="bi bi-youtube fa-2x">
+                                                      </i>
+                                                 </a>
+                                            </div>
+                                        
+                                       </div>
+                                  </div>    
+                             </div>
+                        </div>
+                   </footer>
+
 
 </body>
 </html>

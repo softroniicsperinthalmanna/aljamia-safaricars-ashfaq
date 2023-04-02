@@ -18,21 +18,7 @@
      <script src=""{% static 'js/r.js' %}""></script>
      <link rel="website icon" type="png" href="{% static 'images/logo.png' %}">
 
-    <script>
-      var form_fields=document.getElementsByTagName('form')
-      form_fields[1].placeholder="Username";
-      form_fields[2].placeholder="First name";
-      form_fields[3].placeholder="Last name";
-      form_fields[4].placeholder="Email";
-      form_fields[5].placeholder="Password";
-      form_fields[6].placeholder="Confirm Password ";
-
-        for(var field in form_fields)
-        {
-          form_fields[field].className += 'form-control'
-        }
-
-    </script>
+  
 </head>
 <body>
 	
@@ -154,5 +140,11 @@
   {{form.password2}}
   <input type="submit" name="" id="">
 </form>-->
+{% comment %} {% autoescape off %}
+h1{{user.username}}
+click below link:
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+   
+{% endautoescape %}{% endcomment %}
 </body>
 </html>

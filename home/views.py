@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_list_or_404
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate , logout 
 from django.contrib import messages
@@ -6,6 +6,25 @@ from . forms import UserRegistrationForm
 from . forms import SellcarForm,fbForm,addressForm,testForm,serviceForm
 from django .views import View
 from .models import *
+#activation of email
+# from django.template.loader import render_to_string
+# from .tokens import account_activation_token
+# from django.contrib.sites.shortcuts import get_current_site
+# from django.shortcuts import render, redirect
+# from django.contrib import messages
+# from django.contrib.auth import login
+# from django.contrib.auth.tokens import default_token_generator
+# from django.contrib.auth.views import PasswordResetConfirmView
+# from django.contrib.sites.shortcuts import get_current_site
+# from django.urls import reverse_lazy
+# from django.utils.encoding import force_bytes
+# from django.utils.http import urlsafe_base64_encode
+# from django.utils.decorators import method_decorator
+# from django.views.decorators.debug import sensitive_post_parameters
+# from django.views.generic import CreateView, TemplateView
+# from django.core.mail import EmailMessage
+
+#end
 # Create your views here.
 def index(request):
    laxury_cars= l_cars.objects.all()
@@ -15,7 +34,12 @@ def index(request):
 
    return render(request,'index.html',locals())
 def  acc(request):
-    acc= add_product.objects.all()
+    #search
+    if 'q' in request.GET:
+        q=request.GET['q']
+        acc=add_product.objects.filter(p_name__icontains=q)
+    else:
+           acc= add_product.objects.all()
 
     return render(request,'acc.html',locals())
 # def  sellcar(request):
@@ -86,8 +110,22 @@ def  logout(request):
     logout(request)
     return redirect(login)
     
-def  car(request):
-    return render(request,'car.html')
+def  car(request,pk):
+     #preview
+    car = l_cars.objects.get(id=pk)
+    context={'cars':car}
+
+    return render(request,'car.html',{'car':car})
+def  car1(request,pk):
+     #preview
+    bike = l_bikes.objects.get(id=pk)
+    context={'bikes':bike}
+    return render(request,'car1.html',{'bike':bike})
+def  car2(request,pk):
+     #preview
+    car = add_vehicle.objects.get(id=pk)
+    context={'cars':car}
+    return render(request,'car2.html',{'car':car})
 
 class serviceView(View):
      def get(self,request):
@@ -198,6 +236,30 @@ class addressView(View):
         return render (request,'adress.html', locals())
     
     
+#activation of email
+
+# def activate(request,uidb64,token):
+#      context = {'uidb64':uidb64, 'token':token}
+#      return redirect('home',context)
+
+# def activateEmail(request,user,to_email):
+#     mail_subject ="Activate user account"
+#     message=render_to_string("reg.html",{
+#         'user':user.username,
+#         'domain':get_current_site(request).domain,
+#         'uid':urlsafe_base64_decode(force_bytes(user.pk)),
+#         'token':account_activation_token.make_token(user),
+#         "protocol":'https' if request.is_secure() else 'http'
+        
+#     })
+#     email=EmailMessage(mail_subject,message,to=[to_email])
+#     if email.send():
+        
+#         messages.success(request,f'Dear <b>{user}</b>,please go to Email <b>{to_email}</b> inbox and click on recived activation link to confirm and complete the registarion <b>note</b> Check spam folder')
+#     else:
+#         messages.error(request,f'problem sending email to {to_email},check if you typed correctly.')
+# @user_not_authenticated
+#end
 def reg(request):
     # if request.user.is_authenticated:
     #     return redirect('home')
@@ -208,6 +270,9 @@ def reg(request):
             if form.is_valid():
                 form.save()
                 # user = form.cleaned_data.get('username')
+                #activation of email
+                # activateEmail(request,User,form.cleaned_data.get('email'))
+                #end
                 messages.success(request, 'Your account has been created. You can log in now!')    
                 return redirect('login')
         else:
@@ -222,22 +287,60 @@ def reg(request):
 
 def  otp(request):
     return render(request,'otp.html')
-def  product(request):
-    return render(request,'product.html')
+def  contact(request):
+    return render(request,'contact.html')
+
+
+def  product(request,pk):
+    #preview
+    product = dis_product.objects.get(id=pk)
+    context={'products':product}
+
+    return render(request,'product.html',{'product':product})
+def  product2(request,pk):
+    #preview
+    product = add_product.objects.get(id=pk)
+    context={'products':product}
+
+    return render(request,'product2.html',{'product':product})
+
+
 def  cart(request):
     return render(request,'cart.html')
 def  order_details(request):
     return render(request,'order_details.html')
 def  servicedt(request):
-    ser= service.objects.all()
+    ser= service.objects.filter(user=request.user)
 
     return render(request,'servicedt.html',locals())
 
 def testdrivedetails(request):
-    tst=test.objects.all()
+    tst=test.objects.filter(user=request.user)
+    
     return render(request,'testdrivedetails.html',locals())
+
+
 def  cars(request):
-    car= add_vehicle.objects.all()
+     #search
+    if 'q' in request.GET:
+        q=request.GET['q']
+        car=add_vehicle.objects.filter(brand__icontains=q)
+    else:
+        car= add_vehicle.objects.all()
+    
+    #dropdown
+    if 'dropdown' in request.GET:
+        dropdown=request.GET['dropdown']
+        car=add_vehicle.objects.filter(fuel__icontains=dropdown)
+    else:
+        car= add_vehicle.objects.all()
+        
+    if 'transmisson' in request.GET:
+        transmisson=request.GET['transmisson']
+        car=add_vehicle.objects.filter(transmisson__icontains=transmisson)
+    else:
+        car= add_vehicle.objects.all()
+
 
     return render(request,'cars.html',locals())
   

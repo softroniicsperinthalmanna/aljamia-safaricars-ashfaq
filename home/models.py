@@ -176,6 +176,11 @@ class l_cars(models.Model):
      l_fuel=models.CharField(max_length=255,choices=FUEL, default='petrol')
      l_discription=models.CharField(max_length=255)
      l_image = models.ImageField( max_length = 100)
+     l_image1 = models.ImageField( max_length = 100,null=True)
+     l_image2 = models.ImageField( max_length = 100,null=True)
+     l_image3 = models.ImageField( max_length = 100,null=True)
+     l_image4 = models.ImageField( max_length = 100,null=True)
+     
      l_price =models.IntegerField()
 
 class l_bikes(models.Model):
@@ -190,7 +195,11 @@ class l_bikes(models.Model):
      b_transmisson= models.CharField(max_length=255, choices=GEAR, default='manual')
      b_fuel=models.CharField(max_length=255,choices=FUEL, default='petrol')
      b_discription=models.CharField(max_length=255)
-     b_image = models.ImageField( max_length = 100) 
+     b_image = models.ImageField( max_length = 100)
+     b_image1 = models.ImageField( max_length = 100,null=True)
+     b_image2 = models.ImageField( max_length = 100,null=True)
+     b_image3 = models.ImageField( max_length = 100,null=True)
+     b_image4 = models.ImageField( max_length = 100,null=True)     
      b_price =models.IntegerField()
 
 class add_garage(models.Model):

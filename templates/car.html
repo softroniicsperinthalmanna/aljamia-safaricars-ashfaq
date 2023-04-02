@@ -33,7 +33,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                <a class="nav-link " aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'acc' %}">Accessories</a>
@@ -55,9 +55,10 @@
                   options
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">My order</a></li>
-                  <li><a class="dropdown-item" href="#">Service booking</a></li>
-                  <li><a class="dropdown-item" href="#">test drive details</a></li>
+                  <li><a class="dropdown-item" href="{%url 'order_details'%}">My order</a></li>
+                  <li><a class="dropdown-item" href="{%url 'servicedt'%}">Service booking</a></li>
+                  <li><a class="dropdown-item" href="{%url 'testdrivedetails'%}">test drive details</a></li>
+
 
                   
                 </ul>
@@ -71,30 +72,27 @@
         </div>
       </nav>
       <!-- car -->
-    <div class="clearfix text-sm-start text-sm-center  fs-6">
+       <div class="clearfix text-sm-start text-sm-center  fs-6">
 
-        <img class="container rounded float-start 	border border-2 float-left w-50 h-25" src="https://imgd.aeplcdn.com/0x0/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg" alt="car">
+        <img class="container rounded float-start 	border border-2 float-left w-50 h-25" src="{{ car.l_image.url }}" alt="car">
        <div class="details m mx-5 my-5"> 
-        <h3 class="text-sm-start text-xl-center fw-bold fs-3 ms-5 text-m-5 text-sm-center">MercedesBenz-GClass</h3>
-        <div class="container1 ">Lorem ipsum dolor sit amet.</div>
-        <div class="container1">Lorem ipsum dolor sit amet.</div>
-        <div class="container1">Lorem ipsum dolor sit amet.</div>
-        <div class="container1">Lorem ipsum dolor sit amet.</div>
-        <div class="container1">Lorem ipsum dolor sit amet.</div>
-        <div class="container1">Lorem ipsum dolor sit amet.</div>
-        <div class="container1">Lorem ipsum dolor sit amet.</div>
+        <h3 class="text-sm-start text-xl-center fw-bold fs-3 ms-5 text-m-5 text-sm-center text-uppercase">{{car.l_brand}}</h3>
+        <h3 class="text-sm-start text-xl-center fw-bold fs-3 ms-5 text-m-5 text-sm-center text-uppercase">{{car.l_model}}</h3>
+
+        <div class="container1 ">    {{car.l_discription}}        </div>
+       
 
       </div>
     </div>
               <!-- car-images -->
               <div class=" m mt-2 p pe-0 h-25 w-25 d-flex  mx-5">
-                <img class=" border border-3 w-75 h-75" src="https://imgd.aeplcdn.com/0x0/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg" alt="">
-                <img class=" border border-3 w-75 h-75" src="https://imgd.aeplcdn.com/0x0/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg" alt="">
-                <img class=" border border-3 w-75 h-75" src="https://imgd.aeplcdn.com/0x0/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg" alt="">
-                <img class=" border border-3 w-75 h-75" src="https://imgd.aeplcdn.com/0x0/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg" alt="">
-                <img class=" border border-3 w-75 h-75" src="https://imgd.aeplcdn.com/0x0/n/cw/ec/48067/s-class-exterior-right-front-three-quarter-3.jpeg" alt="">
+                <img class=" border border-3 w-75 h-75" src="{{ car.l_image1.url }}" alt="">
+                <img class=" border border-3 w-75 h-75" src="{{ car.l_image2.url }}" alt="">
+                <img class=" border border-3 w-75 h-75" src="{{ car.l_image3.url }}" alt="">
+                <img class=" border border-3 w-75 h-75" src="{{ car.l_image4.url }}" alt="">
 
               </div>
+
 
 
 
@@ -103,119 +101,123 @@
     <div class="feature">
       <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
         <h5 class="m mx-5 mt-3 text-lg-center">KM driven</h5>
-        <div class="dic mx-5 text-lg-center">500000 KM</div>
+        <div class="dic mx-5 text-lg-center">{{car.l_km_driven}}</div>
+      </div>
+      <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
+        <h5 class="m mx-5 mt-3 text-lg-center">No.Owner</h5>
+        <div class="dic mx-5 text-lg-center">{{car.l_no_owner}}</div>
       </div>
       <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
         <h5 class="m mx-5 mt-3 text-lg-center">Fuel type</h5>
-        <div class="dic mx-5 text-lg-center">Petrol KM</div>
+        <div class="dic mx-5 text-lg-center">{{car.l_fuel}}</div>
       </div>
-      <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
-        <h5 class="m mx-5 mt-3 text-lg-center">Mailage</h5>
-        <div class="dic mx-5 text-lg-center">12 KM</div>
-      </div>
+     
       <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
         <h5 class="m mx-5 mt-3 text-lg-center">Insurance upto</h5>
-        <div class="dic mx-5 text-lg-center"> 2025</div>
+        <div class="dic mx-5 text-lg-center"> {{car.l_insurence_validity}}</div>
       </div>
     </div>
     <div class="feature">
       <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
         <h5 class="m mx-5 mt-3 text-lg-center">Year</h5>
-        <div class="dic mx-5 text-lg-center"> 2015</div>
+        <div class="dic mx-5 text-lg-center"> {{car.l_year}}</div>
       </div>
       <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
         <h5 class="m mx-5 mt-3 text-lg-center">Color</h5>
-        <div class="dic mx-5 text-lg-center">Black </div>
+        <div class="dic mx-5 text-lg-center">{{car.l_Color}} </div>
       </div>
       <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
         <h5 class="m mx-5 mt-3 text-lg-center">Engine CC</h5>
-        <div class="dic mx-5 text-lg-center">S350</div>
-      </div>
-      
-    </div>
+        <div class="dic mx-5 text-lg-center">    {{car.l_engine_CC}} </div>     
+            </div>
+            <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
+              <h5 class="m mx-5 mt-3 text-lg-center">Transmisson</h5>
+              <div class="dic mx-5 text-lg-center">        {{car.l_transmisson}}      </div>
+            </div>
+        <div class="km border border-3 m mt-2 p pe-0 w-25 text-uppercase fw-bold fs-4">
+          <h5 class="m mx-5 mt-3 text-lg-center">Price</h5>
+          <div class="dic mx-5 text-lg-center text-danger">        {{car.l_price}}      </div>
+        </div>
+        
+    </div> 
+   
+
     <div class="button">
-      <a href="#" >  <button class="btn btn-outline-danger btn-lg float-end  px-2 my-5 mx-4  m md-2" type="submit">Connect with seller</button></a>
+      <a href="{% url 'contact'  %}" >  <button class="btn btn-outline-danger btn-lg float-end  px-2 my-5 mx-4  m md-2" type="submit">Connect with seller</button></a>
       <a href="{% url 'test'  %}"> <button class="btn btn-outline-info btn-lg float-end  px-2 my-5 mx-4  m md-2" type="submit">Check for  Test drive</button> </a>
    
 
   </div>
 
 
-    <footer class="footer">
-      <div class="container2 mt-5"><h4 class="aboutus">About US</h4></div>
-      <hr>
+  <div class="container-fluid"><h4 class="aboutus">About US</h4></div>
+  <hr class="border border-3">
+ 
 
-      <div class="container">
-           <div class="row">
-                <div class="col-sm-2">
-                     <div class="footer_logo">
-                          <img  class="container-fluid" src="{% static 'images/logo.png' %}" style="height: 150px; width:auto;"> 
-                     </div>
-                 
-                </div>
-                <div class="col-sm-3">
-                     <h4>Meet us</h4>
-                     <p>
-                          Lorem., Lorem, ipsum.,
-                          Lorem, ipsum dolor.
-                          000000
-                     </p>
-                     <p>
-                          NH-66, Lorem, ipsum., 
-                          Lorem., Lorem, ipsum.,
-                          Lorem, ipsum dolor.
-                          000000
-                          673014
-                     </p>
-                     <p>
-                      Lorem., Lorem, ipsum.,
-                      Lorem, ipsum dolor.
-                      000000
-                          
-                     </p>
-                </div>
-                <div class="col-sm-2">
-                     <h4>Call us</h4>
-                     <p>(+91) 123654789
-                          <!-- (+91) 85930 19090 <br> -->
-                     </p>
-                     <h4>Write to us</h4>
-                     <a href="#">Email</a>
-                </div>
-            
-                <div class="col-sm-3 ">
-                     <div class="top_nav">
-                          <h4>Connect with us</h4>
-                          <div class="socia_icons">
-                               <a class="social" href="#" target="_blank">
-                                    <i class="bi bi-facebook fa-2x">
-                                    </i>
-                               </a>
-                               <a class="social" href="#" target="_blank">
-                                    <i class="bi bi-twitter fa-2x">
-                                    </i>
-                               </a> 
-                               <a class="social" href="#" target="_blank">
-                                    <i class="bi bi-instagram fa-2x">
-                                    </i>
-                               </a>
-                               <a class="social" href="#" target="_blank">
-                                    <i class="fa fa-whatsapp fa-2x">
-                                    </i>
-                               </a> 
-                               <a class="social" href="#" target="_blank">
-                                    <i class="bi bi-youtube fa-2x">
-                                    </i>
-                               </a>
+         <footer class="footer">
+           <div class="container">
+                <div class="row">
+                     <div class="col-sm-2">
+                          <div class="footer_logo">
+                               <img  class="container-sm" src="{% static 'images/logo.png' %}" style="height: 150px; width:auto;"> 
                           </div>
                       
                      </div>
-                </div>    
-           </div>
-      </div>
- </footer>
+                     <div class="col-sm-3">
+                          <h4>Meet us</h4>
+                          <p>
+                               karuvarakundu,
+                               malappuram,
+                               kerala
+                          </p>
+                          <p>
+                               NH-66, 
+                               673014
+                          </p>
+                         
+                     </div>
+                     <div class="col-sm-2">
+                          <h4>Call us</h4>
+                          <p>(+91) 123654789
+                              (+91) 85930 19090 <br>
+                          </p>
+                          <h4>Write to us</h4>
+                         .<div class="container">
+                           Gmail
+                          <a href="mailto:thanzeetnz83@gmailcom" class="text-danger "> safaricars@gmail.com</a>
+                         </div>
+                       </div>
+                 
+                     <div class="col-sm-3 ">
+                          <div class="top_nav">
+                               <h4>Connect with us</h4>
+                               <div class="socia_icons">
+                                <a class="social" href="https://www.facebook.com/sonu.sana.927" target="_blank">
+                                  <i class="bi bi-facebook fa-2x">
 
-  
+                                  </i>
+                             </a>
+                          
+                             <a class="social text-danger" href="https://www.instagram.com/thansi_i/" target="_blank">
+                                  <i class="bi bi-instagram fa-2x">
+                                  </i>
+                             </a>
+                             <a class="social text-success" href="http://wa.me/9947977759" target="_blank">
+                                  <i class="bi bi-whatsapp fa-2x">
+                                  </i>
+                             </a> 
+                             <a class="social text-danger" href="https://www.youtube.com/@safaricarsbyanfal3218" target="_blank">
+                                  <i class="bi bi-youtube fa-2x">
+                                  </i>
+                             </a>
+                               </div>
+                           
+                          </div>
+                     </div>    
+                </div>
+           </div>
+      </footer>
+
 
 </body>
 </html>

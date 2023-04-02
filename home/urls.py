@@ -12,10 +12,15 @@ urlpatterns = [
     
     path('',views.index,name='home'),
     path('accessories/',views.acc,name='acc'),
+    path('contact/',views.contact,name='contact'),
+
     path('sellyourcar/',views.SellCarView.as_view(),name='sellcar'), 
     
+    #preview
+    path('car/<int:pk>/',views.car,name='car'), 
+    path('car1/<int:pk>/',views.car1,name='car1'), 
+    path('car2/<int:pk>/',views.car2,name='car2'), 
 
-    path('car/',views.car,name='car'), 
     path('service/',views.serviceView.as_view(),name='service'),   
     path('garage/',views.gar,name='gar'),
     path('ad/',views.ad,name='ad'),
@@ -24,7 +29,11 @@ urlpatterns = [
     
     path('testdrive/',views.testView.as_view(),name='test'),
     path('OTP/',views.otp,name='otp'),
-    path('product/',views.product,name='product'),
+    #preview
+    path('product/<int:pk>/', views.product, name='product'),
+    path('product2/<int:pk>/', views.product2, name='product2'),
+
+    # path('product/',views.product,name='product'),
     path('adress/',views.addressView.as_view(),name='adress'),
     path('cart/',views.cart,name='cart'),
     path('order_details/',views.order_details,name='order_details'),
@@ -32,6 +41,9 @@ urlpatterns = [
     path('testdrivedetails/',views.testdrivedetails,name='testdrivedetails'),
     path('cars/',views.cars,name='cars'), 
 
+
+#email
+    # path('activate/<uidb64>/<token>',views.activate,name='activate')
     #<------------- admin------------------------------>
 
     # path('admin/',admin.site.urls),

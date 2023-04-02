@@ -35,11 +35,11 @@ class dis_productModelAdmin(admin.ModelAdmin):
 
 @admin.register(l_cars)
 class l_carsModelAdmin(admin.ModelAdmin):
-    list_display=['l_brand','l_model','l_year','l_km_driven','l_Color','l_no_owner','l_engine_CC','l_insurence_validity','l_transmisson','l_fuel','l_discription','l_image','l_price']
+    list_display=['l_brand','l_model','l_year','l_km_driven','l_Color','l_no_owner','l_engine_CC','l_insurence_validity','l_transmisson','l_fuel','l_discription','l_image','l_image1','l_image2','l_image3','l_image4','l_price']
 
 @admin.register(l_bikes)
 class l_bikesModelAdmin(admin.ModelAdmin):
-    list_display=['b_brand','b_model','b_year','b_km_driven','b_Color','b_no_owner','b_engine_CC','b_insurence_validity','b_transmisson','b_fuel','b_discription','b_image','b_price']
+    list_display=['b_brand','b_model','b_year','b_km_driven','b_Color','b_no_owner','b_engine_CC','b_insurence_validity','b_transmisson','b_fuel','b_discription','b_image','b_image1','b_image2','b_image3','b_image4','b_price']
 
 @admin.register(add_featre_ad)
 class add_featre_adModelAdmin(admin.ModelAdmin):
